@@ -7,11 +7,10 @@ public class RecommendedVideos : MonoBehaviour
 {
     public VideoOption[] videoOptions;
 
-    public void FillRecomendedVideos(VideoData videoData)
+    public void FillRecomendedVideos(VideoData videoData, bool isHomePage)
     {
-        List<VideoData> recommendedVideos = GameManager.instance?.GenerateRecomendedVideos(videoData);
+        List<VideoData> recommendedVideos = GameManager.instance?.GenerateRecomendedVideos(videoData, isHomePage);
 
-        recommendedVideos.Shuffle();
         int index = 0;
         foreach (VideoOption video in videoOptions)
         {

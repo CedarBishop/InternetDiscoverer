@@ -12,6 +12,35 @@ public class InternetDiscoverer : MonoBehaviour
     {
         homePage.gameObject.SetActive(true);
         watchPage.gameObject.SetActive(false);
+
+        GameManager.instance?.ClearHistory();
+
+        homePage?.LoadRecommendedVideos();
+    }
+
+    public void BackButton ()
+    {
+        if (GameManager.instance.GetPreviousBrowserState(out BrowserHistoryState state))
+        {
+            if (state.isHomePage)
+            {
+                HomeButton();
+            }
+            else
+            {
+
+            }
+        }
+    }
+
+    public void ForwardButton ()
+    {
+
+    }
+
+    public void RefreshButton ()
+    {
+
     }
 
     public void WatchVideo (VideoData videoData)

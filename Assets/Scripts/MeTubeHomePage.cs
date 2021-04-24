@@ -8,6 +8,6 @@ public class MeTubeHomePage : MonoBehaviour
 
     public void LoadRecommendedVideos ()
     {
-        recomendedVideos?.FillRecomendedVideos(null);
+        recomendedVideos?.FillRecomendedVideos(null, true);
     }
 }

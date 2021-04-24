@@ -11,7 +11,7 @@ public class MeTubeWatchPage : MonoBehaviour
 
     public void LoadVideo(VideoData videoData)
     {
-        recomendedVideos?.FillRecomendedVideos(videoData);
+        recomendedVideos?.FillRecomendedVideos(videoData, false);
         GenerateComments(videoData);
     }
 

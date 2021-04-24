@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
 
     public VideoData[] allVideos;
+    public List<BrowserHistoryState> browserHistory;
+
+    private int browserHistoryStateIndex = -1;
 
     private void Awake()
     {
@@ -20,11 +23,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public List<VideoData> GenerateRecomendedVideos (VideoData currentVideo)
+    public List<VideoData> GenerateRecomendedVideos (VideoData currentVideo, bool isHomePage)
     {
         List<VideoData> recomendedVideos = new List<VideoData>();
 
-        if (currentVideo != null)
+        if (isHomePage)
+        {
+            foreach (var item in allVideos)
+            {
+                recomendedVideos.Add(item);
+            }
+        }
+        else
         {
             // use tags from recomended video to return a list of similar videos
 
@@ -36,13 +46,16 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            foreach (var item in allVideos)
-            {
-                recomendedVideos.Add(item);
-            }
-        }        
+
+        recomendedVideos.Shuffle();
+
+        BrowserHistoryState state = new BrowserHistoryState();
+        state.isHomePage = isHomePage;
+        state.videoDatas = recomendedVideos;
+
+        browserHistory.Add(state);
+        browserHistoryStateIndex++;
+
 
         return recomendedVideos;
     }
@@ -60,6 +73,44 @@ public class GameManager : MonoBehaviour
 
         return false;
     }
+
+    public void ClearHistory ()
+    {
+        browserHistory.Clear();
+        browserHistoryStateIndex = -1;
+    }
+
+    public bool GetPreviousBrowserState (out BrowserHistoryState historyState)
+    {
+        historyState = new BrowserHistoryState();
+        if (browserHistoryStateIndex > 0)
+        {
+            browserHistoryStateIndex--;
+            historyState = browserHistory[browserHistoryStateIndex];
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool GetNextBrowserState (out BrowserHistoryState historyState)
+    {
+        historyState = new BrowserHistoryState();
+        if (browserHistoryStateIndex < browserHistory.Count - 1)
+        {
+            browserHistoryStateIndex++;
+            historyState = browserHistory[browserHistoryStateIndex];
+            return true;
+        }
+
+        return false;
+    }
+}
+
+public struct BrowserHistoryState
+{
+    public bool isHomePage;
+    public List<VideoData> videoDatas;
 }
 
 public static class IListExtensions
