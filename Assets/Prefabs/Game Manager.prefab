@@ -43,3 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a0c8e3152edfc4e853a5cb1487859d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allVideos:
+  - {fileID: 11400000, guid: f49ac67098492624e81eb5ea93c2b545, type: 2}
+  - {fileID: 11400000, guid: 0ddc232a92f10f94da78f8464a05722a, type: 2}
+  - {fileID: 11400000, guid: 16a3d4dbd1334de4eb8f59f39a1a6899, type: 2}
+  - {fileID: 11400000, guid: 04c7e35254c42ad4088e25ba7a0a9796, type: 2}
+  - {fileID: 11400000, guid: 43fe0a17ec51da2439536c0032334a35, type: 2}
+  - {fileID: 11400000, guid: 644cda6b19ca2f7469585a3da486ea70, type: 2}
+  - {fileID: 11400000, guid: decb924e692d2d24a9c873b1a1c33698, type: 2}
+  - {fileID: 11400000, guid: ecdfbd1f53e693b49988792945f1a543, type: 2}

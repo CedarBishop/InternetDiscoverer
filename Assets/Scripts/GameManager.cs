@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
 
     public VideoData[] allVideos;
-    public List<BrowserHistoryState> browserHistory;
+    public List<BrowserHistoryState> browserHistory = new List<BrowserHistoryState>();
 
     private int browserHistoryStateIndex = -1;
 
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public List<VideoData> GenerateRecomendedVideos (VideoData currentVideo, bool isHomePage)
+    public List<VideoData> GenerateRecomendedVideos (VideoData newVideo, bool isHomePage)
     {
         List<VideoData> recomendedVideos = new List<VideoData>();
 
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
             foreach (VideoData video in allVideos)
             {
-                if (SharesTag(video, currentVideo))
+                if (SharesTag(video, newVideo))
                 {
                     recomendedVideos.Add(video);
                 }
@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         recomendedVideos.Shuffle();
 
         BrowserHistoryState state = new BrowserHistoryState();
+        state.currentVideo = newVideo;
         state.isHomePage = isHomePage;
         state.videoDatas = recomendedVideos;
 
@@ -109,6 +110,7 @@ public class GameManager : MonoBehaviour
 
 public struct BrowserHistoryState
 {
+    public VideoData currentVideo;
     public bool isHomePage;
     public List<VideoData> videoDatas;
 }

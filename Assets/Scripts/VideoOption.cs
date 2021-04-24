@@ -47,5 +47,7 @@ public class VideoOption : MonoBehaviour
     public void OnClick ()
     {
         print("On Video Clicked");
+        InternetDiscoverer internet = UIManager.instance.GetInternetDiscoverer();
+        UIManager.instance.internetDiscoverer.WatchVideo(videoData);
     }
 }

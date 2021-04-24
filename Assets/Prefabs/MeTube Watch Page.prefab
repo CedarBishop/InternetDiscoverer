@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoTitleText: {fileID: 1896038305663501074}
-  recomendedVideos: {fileID: 0}
+  recomendedVideos: {fileID: 2500605198982675770}
 --- !u!1 &5791525338994627170
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ef95a4b29d958f04a85a485ed520ec85, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18dad4e4f3b2d0b43a518d565d997cb4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -506,3 +506,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7412134348789027536, guid: 73c0df10c85e7174ca779f8e002e034a, type: 3}
   m_PrefabInstance: {fileID: 5440930235656805832}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2500605198982675770 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7580119021922214130, guid: 73c0df10c85e7174ca779f8e002e034a, type: 3}
+  m_PrefabInstance: {fileID: 5440930235656805832}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801109ae837bdaf4eaa2d4aa98b11dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

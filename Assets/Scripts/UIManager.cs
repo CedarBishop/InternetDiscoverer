@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance = null;
 
     public Desktop desktop;
-    public InternetDiscoverer metube;
+    public InternetDiscoverer internetDiscoverer;
 
     private void Awake()
     {
@@ -19,5 +19,15 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public Desktop GetDesktop()
+    {
+        return desktop;
+    }
+
+    public InternetDiscoverer GetInternetDiscoverer ()
+    {
+        return internetDiscoverer;
     }
 }

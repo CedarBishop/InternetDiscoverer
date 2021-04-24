@@ -12,5 +12,5 @@ public class VideoData : ScriptableObject
     public string lengthTime;
     public string dateAdded;
     public string youtuber;
-    public List<VideoData> videoTags;
+    public List<VideoTags> videoTags;
 }
