@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f207e7aa7064b9419b4d2e09bfd8843, type: 3}
   m_Name: PlaceholderVideo
   m_EditorClassIdentifier: 
-  thumbnail: {fileID: 0}
+  smallThumbnail: {fileID: 21300000, guid: 55503f35338d48e42b3975770cc12a98, type: 3}
+  largeThumbnail: {fileID: 21300000, guid: c6e410b877c914546a54f42774bb0d6b, type: 3}
   title: THIS IS CLICKBAIT
   views: 4.7M
   lengthTime: 9:47
   dateAdded: 25.07.2007
   youtuber: Mr Beast
-  videoTags: 0000000003000000
+  videoTags: []

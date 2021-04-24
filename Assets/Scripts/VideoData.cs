@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class VideoData : ScriptableObject
 {
-    public Sprite thumbnail;
+    public Sprite smallThumbnail;
+    public Sprite largeThumbnail;
     public string title;
     public string views;
     public string lengthTime;

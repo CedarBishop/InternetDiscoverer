@@ -17,6 +17,8 @@ public class VideoOption : MonoBehaviour
     public Text youtuberText;
     public Text uploadDateText;
 
+    public bool isHomePage;
+
     void Start()
     {
         Setup();
@@ -34,7 +36,7 @@ public class VideoOption : MonoBehaviour
             return;
         }
 
-        thumbnail.sprite = videoData.thumbnail;
+        thumbnail.sprite = (isHomePage) ? videoData.largeThumbnail : videoData.smallThumbnail;
         videoTitle.text = videoData.title;
         viewsText.text = videoData.views + " views";
         lengthText.text = videoData.lengthTime;
