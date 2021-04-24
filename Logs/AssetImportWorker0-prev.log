@@ -15,11 +15,11 @@ D:/Documents/GitHub/InternetDiscoverer
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57077
+57726
 Successfully changed project path to: D:/Documents/GitHub/InternetDiscoverer
 D:/Documents/GitHub/InternetDiscoverer
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 138.16 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 130.78 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.1f1 (6fdc41dfa55a)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/Resources/UnitySubsystems
@@ -35,59 +35,83 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56848
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56028
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004438 seconds.
+Registered in 0.003922 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 146.75 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 128.18 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.870 seconds
+- Completed reload, in  2.250 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003989 seconds.
+Registered in 0.005919 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 123.47 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 128.09 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.758 seconds
+- Completed reload, in  1.737 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.13 seconds
-Refreshing native plugins compatible for Editor in 0.66 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
+Refreshing native plugins compatible for Editor in 0.71 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3378 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 128.1 MB.
 System memory in use after: 128.3 MB.
 
 Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3837.
-Total: 3.045000 ms (FindLiveObjects: 0.275800 ms CreateObjectMapping: 0.198600 ms MarkObjects: 2.492400 ms  DeleteObjects: 0.077100 ms)
+Total: 2.796500 ms (FindLiveObjects: 0.297800 ms CreateObjectMapping: 0.217900 ms MarkObjects: 2.184500 ms  DeleteObjects: 0.095000 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Sprites/Internet Discoverer Desktop Background.png
-  artifactKey: Guid(34ef59c1764858a4db2598431e8fcd4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Internet Discoverer Desktop Background.png using Guid(34ef59c1764858a4db2598431e8fcd4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4666b456daeddb638feee6f323e39a06') in 0.273958 seconds 
+  path: Assets/Sprites/Alert!.png
+  artifactKey: Guid(6908896ef4df3bd44badf0cc1406ae07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Alert!.png using Guid(6908896ef4df3bd44badf0cc1406ae07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a9e58b96c917872feb6eb235672f9b0') in 0.230200 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 6.633958 seconds.
-  path: Assets/Sprites/Internet Discoverer Desktop Background.png
-  artifactKey: Guid(34ef59c1764858a4db2598431e8fcd4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Internet Discoverer Desktop Background.png using Guid(34ef59c1764858a4db2598431e8fcd4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f62d3ab1e741b21c197e96c74dfda310') in 0.040822 seconds 
+  Time since last request: 4.236891 seconds.
+  path: Assets/Sprites/Alert!.png
+  artifactKey: Guid(6908896ef4df3bd44badf0cc1406ae07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Alert!.png using Guid(6908896ef4df3bd44badf0cc1406ae07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '236f9727de08b670d219eb6132606579') in 0.039192 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 20.979026 seconds.
-  path: Assets/Sprites/Internet Discoverer Desktop Background.png
-  artifactKey: Guid(34ef59c1764858a4db2598431e8fcd4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Internet Discoverer Desktop Background.png using Guid(34ef59c1764858a4db2598431e8fcd4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e216e30123dcdeb42874b025353b627') in 0.044179 seconds 
+  Time since last request: 1481.633640 seconds.
+  path: Assets/Sprites/Alert! 1.png
+  artifactKey: Guid(7d36c9b1f23b37e438a16dcb4a1d0ec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Alert! 1.png using Guid(7d36c9b1f23b37e438a16dcb4a1d0ec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35ee8b0ce07e8a90a0957dc893290490') in 0.065059 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000280 seconds.
+  path: Assets/Sprites/LOLMessenger.png
+  artifactKey: Guid(3d745a01d8940be428715ec6c486871f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/LOLMessenger.png using Guid(3d745a01d8940be428715ec6c486871f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd3d496e1dd24f43d59a8a947902fa62') in 0.101007 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/Sprites/LOLMessenger Button.png
+  artifactKey: Guid(cebcb01db94c4e14e92771e32b07aeeb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/LOLMessenger Button.png using Guid(cebcb01db94c4e14e92771e32b07aeeb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b7a544c9fc8ec0d9aa5c89b44608eb8') in 0.073145 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 21.250087 seconds.
+  path: Assets/Sprites/LOLMessenger Button.png
+  artifactKey: Guid(cebcb01db94c4e14e92771e32b07aeeb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/LOLMessenger Button.png using Guid(cebcb01db94c4e14e92771e32b07aeeb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63971503200d19c09d3678690bed2066') in 0.121218 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000261 seconds.
+  path: Assets/Sprites/LOLMessenger.png
+  artifactKey: Guid(3d745a01d8940be428715ec6c486871f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/LOLMessenger.png using Guid(3d745a01d8940be428715ec6c486871f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5505cfd6145b47bab4664f4b69d48308') in 0.100957 seconds 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
