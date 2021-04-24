@@ -8,21 +8,25 @@ public class CursorManager : MonoBehaviour
     public Cursors cursorBlue;
     public Cursors cursorOrange;
 
-    private Cursors currectCursor;
+    private Cursors currentCursor;
+    public Cursors defaultCursor;
 
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
 
+    public bool hideClientMouse = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        currectCursor = cursorNormal;
-        UpdateCursor(cursorNormal);
+        Cursor.visible = !hideClientMouse;
+        currentCursor = defaultCursor;
+        UpdateCursor(currentCursor);
     }
 
     public void UpdateCursor(Cursors c)
     {
-        currectCursor = c;
-        Cursor.SetCursor(currectCursor.cursor, hotSpot, cursorMode);
+        currentCursor = c;
+        Cursor.SetCursor(currentCursor.cursor, hotSpot, cursorMode);
     }
 }

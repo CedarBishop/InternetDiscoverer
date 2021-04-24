@@ -46,5 +46,7 @@ MonoBehaviour:
   cursorNormal: {fileID: 11400000, guid: 772e7af84187c1b47b87f1545393ce42, type: 2}
   cursorBlue: {fileID: 11400000, guid: 2ec30a2c9a778f7478706e0d82d1bfb2, type: 2}
   cursorOrange: {fileID: 11400000, guid: 151f6920f36da0e4cbb5e041e9177e56, type: 2}
-  cursorMode: 0
+  defaultCursor: {fileID: 11400000, guid: 772e7af84187c1b47b87f1545393ce42, type: 2}
+  cursorMode: 1
   hotSpot: {x: 0, y: 0}
+  hideClientMouse: 1
