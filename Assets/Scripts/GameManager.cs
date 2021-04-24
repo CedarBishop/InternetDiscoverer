@@ -40,6 +40,10 @@ public class GameManager : MonoBehaviour
 
             foreach (VideoData video in allVideos)
             {
+                if (video == newVideo)
+                {
+                    continue;
+                }
                 if (SharesTag(video, newVideo))
                 {
                     recomendedVideos.Add(video);

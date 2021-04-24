@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 3162565598186721645}
   - component: {fileID: 2780546195222306727}
   - component: {fileID: 6997181435465146118}
+  - component: {fileID: 8087326152966893537}
   m_Layer: 5
   m_Name: Home Button
   m_TagString: Untagged
@@ -240,6 +241,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8087326152966893537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580813010214597650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4af263393a9114b8b56774853705b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3784535833825594663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,6 +1259,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6104946647413950135, guid: 3f36306ef38608946a99c7080a3f76ad, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210166848996988447, guid: 3f36306ef38608946a99c7080a3f76ad, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210166848996988447, guid: 3f36306ef38608946a99c7080a3f76ad, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210166850148447583, guid: 3f36306ef38608946a99c7080a3f76ad, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210166850148447583, guid: 3f36306ef38608946a99c7080a3f76ad, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210166850148447583, guid: 3f36306ef38608946a99c7080a3f76ad, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6983869466021891935, guid: 3f36306ef38608946a99c7080a3f76ad, type: 3}

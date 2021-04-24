@@ -8,9 +8,10 @@ public class VideoData : ScriptableObject
     public Sprite smallThumbnail;
     public Sprite largeThumbnail;
     public string title;
-    public string views;
+    public int views;
     public string lengthTime;
     public string dateAdded;
     public string youtuber;
+    public float ratings;
     public List<VideoTags> videoTags;
 }
