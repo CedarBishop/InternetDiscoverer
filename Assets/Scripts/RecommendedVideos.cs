@@ -9,6 +9,7 @@ public class RecommendedVideos : MonoBehaviour
 
     public void FillRecomendedVideos(VideoData videoData, bool isHomePage)
     {
+        print("FillRecomendedVideos");
         List<VideoData> recommendedVideos = GameManager.instance?.GenerateRecomendedVideos(videoData, isHomePage);
 
         int index = 0;

@@ -8,6 +8,11 @@ public class InternetDiscoverer : MonoBehaviour
     public MeTubeHomePage homePage;
     public MeTubeWatchPage watchPage;
 
+    private void Start()
+    {
+        HomeButton();
+    }
+
     public void HomeButton ()
     {
         homePage.gameObject.SetActive(true);
