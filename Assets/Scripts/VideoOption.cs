@@ -27,7 +27,7 @@ public class VideoOption : MonoBehaviour
         Setup();
     }
 
-    void Setup ()
+    public void Setup ()
     {
         if (videoData == null)
         {

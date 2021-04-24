@@ -24,15 +24,25 @@ public class GameManager : MonoBehaviour
     {
         List<VideoData> recomendedVideos = new List<VideoData>();
 
-        // use tags from recomended video to return a list of similar videos
-
-        foreach (VideoData video in allVideos)
+        if (currentVideo != null)
         {
-            if (SharesTag(video, currentVideo))
+            // use tags from recomended video to return a list of similar videos
+
+            foreach (VideoData video in allVideos)
             {
-                recomendedVideos.Add(video);
+                if (SharesTag(video, currentVideo))
+                {
+                    recomendedVideos.Add(video);
+                }
             }
         }
+        else
+        {
+            foreach (var item in allVideos)
+            {
+                recomendedVideos.Add(item);
+            }
+        }        
 
         return recomendedVideos;
     }
@@ -51,3 +61,20 @@ public class GameManager : MonoBehaviour
         return false;
     }
 }
+
+public static class IListExtensions
+{
+    public static void Shuffle<T>(this IList<T> ts)
+    {
+        var count = ts.Count;
+        var last = count - 1;
+        for (var i = 0; i < last; ++i)
+        {
+            var r = UnityEngine.Random.Range(i, count);
+            var tmp = ts[i];
+            ts[i] = ts[r];
+            ts[r] = tmp;
+        }
+    }
+}
+
