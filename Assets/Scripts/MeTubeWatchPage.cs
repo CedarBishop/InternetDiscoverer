@@ -13,6 +13,8 @@ public class MeTubeWatchPage : MonoBehaviour
     public Text dateAddedText;
     public VideoViewport videoViewport;
 
+    public Scrollbar[] scrollbars;
+
 
     public void LoadVideo(VideoData videoData)
     {
@@ -35,6 +37,11 @@ public class MeTubeWatchPage : MonoBehaviour
         ratingsFillImage.fillAmount = videoData.ratings / 5.0f;
         youtuberText.text = "By " + videoData.youtuber;
         dateAddedText.text = "Date Added: " + videoData.dateAdded;
+
+        foreach (Scrollbar scrollbar in scrollbars)
+        {
+            scrollbar.value = 1;
+        }
 
         videoViewport.Setup(videoData);
     }
