@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f207e7aa7064b9419b4d2e09bfd8843, type: 3}
   m_Name: Video Data 22
   m_EditorClassIdentifier: 
-  smallThumbnail: {fileID: 21300000, guid: 55503f35338d48e42b3975770cc12a98, type: 3}
-  largeThumbnail: {fileID: 21300000, guid: c6e410b877c914546a54f42774bb0d6b, type: 3}
+  smallThumbnail: {fileID: 21300000, guid: 6555c8f90b2c5fa4c8d8e2f0123d215f, type: 3}
+  largeThumbnail: {fileID: 21300000, guid: 0e98c53849d1bec4fa62af6a0c13a33e, type: 3}
   title: Anarchist's Cook Book for Dummies
   views: 2147483647
   lengthTime: 9:47

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f207e7aa7064b9419b4d2e09bfd8843, type: 3}
   m_Name: Video Data 14
   m_EditorClassIdentifier: 
-  smallThumbnail: {fileID: 21300000, guid: 55503f35338d48e42b3975770cc12a98, type: 3}
-  largeThumbnail: {fileID: 21300000, guid: c6e410b877c914546a54f42774bb0d6b, type: 3}
+  smallThumbnail: {fileID: 21300000, guid: edddab9fffcdf7a4986baff893bf28b1, type: 3}
+  largeThumbnail: {fileID: 21300000, guid: 48568aa5ee6956f49b8a60d7b1becf68, type: 3}
   title: POLITICS Y/N?
   views: 2147483647
   lengthTime: 9:47

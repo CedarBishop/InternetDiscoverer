@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f207e7aa7064b9419b4d2e09bfd8843, type: 3}
   m_Name: Video Data 20
   m_EditorClassIdentifier: 
-  smallThumbnail: {fileID: 21300000, guid: 55503f35338d48e42b3975770cc12a98, type: 3}
-  largeThumbnail: {fileID: 21300000, guid: c6e410b877c914546a54f42774bb0d6b, type: 3}
+  smallThumbnail: {fileID: 21300000, guid: 8557ba0783f6bb748b151365ee19cdda, type: 3}
+  largeThumbnail: {fileID: 21300000, guid: 12b6b62d9fdeeeb449158df9a94fc294, type: 3}
   title: Top 10 Sports Injuries
   views: 2147483647
   lengthTime: 9:47
   dateAdded: 25.07.2007
   youtuber: Binging with Baby
   ratings: 5
-  videoTags: 0a00000007000000
+  videoTags: 0a0000000700000003000000

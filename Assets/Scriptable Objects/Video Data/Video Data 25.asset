@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f207e7aa7064b9419b4d2e09bfd8843, type: 3}
   m_Name: Video Data 25
   m_EditorClassIdentifier: 
-  smallThumbnail: {fileID: 21300000, guid: 55503f35338d48e42b3975770cc12a98, type: 3}
-  largeThumbnail: {fileID: 21300000, guid: c6e410b877c914546a54f42774bb0d6b, type: 3}
+  smallThumbnail: {fileID: 21300000, guid: 14b4731d56c260b40a0f7d21fb4a4ee5, type: 3}
+  largeThumbnail: {fileID: 21300000, guid: c2c044c0ecef12c44a53e92279fc1dcd, type: 3}
   title: Top 10 Celebrity Crimes
   views: 2147483647
   lengthTime: 9:47
