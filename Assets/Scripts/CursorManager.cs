@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CursorManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class CursorManager : MonoBehaviour
     public Cursors cursorBlue;
     public Cursors cursorOrange;
 
-    private Cursors currentCursor;
+    public Cursors currentCursor;
     public Cursors defaultCursor;
 
     public CursorMode cursorMode = CursorMode.Auto;
@@ -16,22 +17,58 @@ public class CursorManager : MonoBehaviour
 
     public bool hideClientMouse = true;
 
+    public UnityEvent mouseEventLoading;
+    public UnityEvent mouseEventNormal;
+    private SpriteRenderer[] mouseShadowSprites;
+
     // Start is called before the first frame update
     void Start()
     {
+        mouseShadowSprites = transform.GetComponentsInChildren<SpriteRenderer>();
+        
         if (hideClientMouse)
-            Cursor.visible = !hideClientMouse;
-        else
         {
-            currentCursor = defaultCursor;
-            UpdateCursor(currentCursor);
+            Cursor.visible = !hideClientMouse;
         }
+
+        currentCursor = defaultCursor;
+        UpdateCursor(currentCursor);
+        
+
+        mouseEventLoading.AddListener(MouseLoading);
+        mouseEventNormal.AddListener(MouseNormal);
 
     }
 
     public void UpdateCursor(Cursors c)
     {
         currentCursor = c;
-        Cursor.SetCursor(currentCursor.cursor, hotSpot, cursorMode);
+        mouseShadowSprites[0].sprite = currentCursor.cursor;
+    }
+
+    public void MouseLoading()
+    {
+        //Debug.Log("Changing Cursor to: LOADING");
+        Debug.Log("Changing Cursor to: " + currentCursor.loading.name);
+        mouseShadowSprites[0].sprite = currentCursor.loading;
+        for (int i = 1; i < mouseShadowSprites.Length; i++)
+        {
+            mouseShadowSprites[i].sprite = currentCursor.loadingShadows[i - 1];
+        }
+    }
+
+    public void MouseNormal()
+    {
+        //Debug.Log("Changing Cursor to: NORMAL");
+        mouseShadowSprites[0].sprite = currentCursor.cursor;
+        for (int i = 1; i < mouseShadowSprites.Length; i++)
+        {
+            mouseShadowSprites[i].sprite = currentCursor.normalShadow[i - 1];
+        }
+    }
+
+    public void changeCursorTex(Texture2D tex)
+    {
+        Cursor.SetCursor(tex, hotSpot, cursorMode);
     }
 }

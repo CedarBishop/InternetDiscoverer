@@ -14,6 +14,16 @@ public class InternetDiscoverer : MonoBehaviour
     public float maxIncrementWaitTime;
     public float maxIncrementAmount;
 
+    private GameManager gameManager;
+
+    private void Awake()
+    {
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
+        }
+    }
+
     private void Start()
     {
         HomeButton();
@@ -70,6 +80,9 @@ public class InternetDiscoverer : MonoBehaviour
 
     IEnumerator CoLoadPage ()
     {
+        // Set Cursor to loading
+        gameManager.cursorManager.mouseEventLoading.Invoke();
+
         loadImage.fillAmount = 1.0f;
         float initialWaitTime = Random.Range(0, maxInitialWaitTime);
         yield return new WaitForSeconds(initialWaitTime);
@@ -83,5 +96,8 @@ public class InternetDiscoverer : MonoBehaviour
         }
 
         loadImage.fillAmount = 0.0f;
+        
+        // Set Cursor to normal
+        gameManager.cursorManager.mouseEventNormal.Invoke();
     }
 }

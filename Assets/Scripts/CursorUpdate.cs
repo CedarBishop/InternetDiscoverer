@@ -18,9 +18,9 @@ public class CursorUpdate : MonoBehaviour
             shadows[0].position = mousePos;
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = mousePos;
-            Debug.Log("Main cursor: " + transform.position +
-                "\nShadow 1: " + shadows[0].position +
-                "\nShadow 2: " + shadows[1].position);
+            //Debug.Log("Main cursor: " + transform.position +
+            //    "\nShadow 1: " + shadows[0].position +
+            //    "\nShadow 2: " + shadows[1].position);
 
             yield return new WaitForSeconds(speed);
 

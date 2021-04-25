@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116d04bbc0c751540affee8bc7103496, type: 3}
   m_Name: Orange Cursor
   m_EditorClassIdentifier: 
-  cursor: {fileID: 2800000, guid: 4438d6e7ad0a74d4bb2a5481ef41ae6e, type: 3}
-  hand: {fileID: 2800000, guid: 4438d6e7ad0a74d4bb2a5481ef41ae6e, type: 3}
-  loading: {fileID: 2800000, guid: 4438d6e7ad0a74d4bb2a5481ef41ae6e, type: 3}
+  cursor: {fileID: 21300000, guid: 4438d6e7ad0a74d4bb2a5481ef41ae6e, type: 3}
+  loading: {fileID: 21300000, guid: c822b286f28e8124594bb441e9c974af, type: 3}
+  normalShadow:
+  - {fileID: 21300000, guid: cf1a0e0635292f140b851838b6b98cfa, type: 3}
+  - {fileID: 21300000, guid: d4ca25054bb913045aeb187c1398089c, type: 3}
+  loadingShadows:
+  - {fileID: 21300000, guid: a47ef5debc995d24684a414f034d70a0, type: 3}
+  - {fileID: 21300000, guid: 57ebd60b49b521e44ae401a5d502611b, type: 3}
