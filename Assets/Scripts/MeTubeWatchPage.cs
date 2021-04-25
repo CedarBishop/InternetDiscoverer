@@ -9,27 +9,31 @@ public class MeTubeWatchPage : MonoBehaviour
     public Text videoTitleText;
     public Image ratingsFillImage;
     public Text viewsText;
+    public Text youtuberText;
+    public Text dateAddedText;
 
 
     public void LoadVideo(VideoData videoData)
     {
         recomendedVideos?.FillRecomendedVideos(videoData, false);
-        videoTitleText.text = videoData.title;
-        viewsText.text = "views: " + videoData.views;
-        ratingsFillImage.fillAmount = videoData.ratings / 5.0f;
-
+        UpdateCurrentVideoUI(videoData);
         GenerateComments(videoData);
     }
 
     public void LoadHistoryState (BrowserHistoryState historyState)
     {
         recomendedVideos?.LoadHistory(historyState);
-
-        videoTitleText.text = historyState.currentVideo.title;
-        viewsText.text = "views: " + historyState.currentVideo.views;
-        ratingsFillImage.fillAmount = historyState.currentVideo.ratings / 5.0f;
-
+        UpdateCurrentVideoUI(historyState.currentVideo);
         GenerateComments(historyState.currentVideo);
+    }
+
+    void UpdateCurrentVideoUI (VideoData videoData)
+    {
+        videoTitleText.text = videoData.title;
+        viewsText.text = "views: " + videoData.views;
+        ratingsFillImage.fillAmount = videoData.ratings / 5.0f;
+        youtuberText.text = "By " + videoData.youtuber;
+        dateAddedText.text = "Date Added: " + videoData.dateAdded;
     }
 
     void GenerateComments(VideoData videoData)
