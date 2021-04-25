@@ -6,10 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
 
-    public VideoData[] allVideos;
-    public List<BrowserHistoryState> browserHistory = new List<BrowserHistoryState>();
+    public Vector2Int randomVideoChance = new Vector2Int(1,4);
 
-    private int browserHistoryStateIndex = -1;
+    public VideoData[] allVideos;
+
+    private Stack<BrowserHistoryState> previousBrowserHistory = new Stack<BrowserHistoryState>();
+    private Stack<BrowserHistoryState> forwardBrowserHistory = new Stack<BrowserHistoryState>();
+
+    private BrowserHistoryState currentState;
 
     private void Awake()
     {
@@ -25,6 +29,8 @@ public class GameManager : MonoBehaviour
 
     public List<VideoData> GenerateRecomendedVideos (VideoData newVideo, bool isHomePage)
     {
+        previousBrowserHistory.Push(currentState);
+
         List<VideoData> recomendedVideos = new List<VideoData>();
 
         if (isHomePage)
@@ -48,19 +54,23 @@ public class GameManager : MonoBehaviour
                 {
                     recomendedVideos.Add(video);
                 }
+                else
+                {
+                    int rand = Random.Range(0, randomVideoChance.y);
+                    if (rand < randomVideoChance.x)
+                    {
+                        recomendedVideos.Add(video);
+                    }
+                }
             }
         }
 
         recomendedVideos.Shuffle();
 
-        BrowserHistoryState state = new BrowserHistoryState();
-        state.currentVideo = newVideo;
-        state.isHomePage = isHomePage;
-        state.videoDatas = recomendedVideos;
-
-        browserHistory.Add(state);
-        browserHistoryStateIndex++;
-
+        currentState = new BrowserHistoryState();
+        currentState.currentVideo = newVideo;
+        currentState.isHomePage = isHomePage;
+        currentState.videoDatas = recomendedVideos;
 
         return recomendedVideos;
     }
@@ -81,17 +91,24 @@ public class GameManager : MonoBehaviour
 
     public void ClearHistory ()
     {
-        browserHistory.Clear();
-        browserHistoryStateIndex = -1;
+        previousBrowserHistory.Clear();
+        forwardBrowserHistory.Clear();
     }
 
     public bool GetPreviousBrowserState (out BrowserHistoryState historyState)
     {
         historyState = new BrowserHistoryState();
-        if (browserHistoryStateIndex > 0)
+
+        if (currentState.isHomePage)
         {
-            browserHistoryStateIndex--;
-            historyState = browserHistory[browserHistoryStateIndex];
+            return false;
+        }
+
+        if (previousBrowserHistory.Count > 0)
+        {
+            forwardBrowserHistory.Push(currentState);
+            currentState = previousBrowserHistory.Pop();
+            historyState = currentState;
             return true;
         }
 
@@ -101,10 +118,11 @@ public class GameManager : MonoBehaviour
     public bool GetNextBrowserState (out BrowserHistoryState historyState)
     {
         historyState = new BrowserHistoryState();
-        if (browserHistoryStateIndex < browserHistory.Count - 1)
+        if (forwardBrowserHistory.Count > 0)
         {
-            browserHistoryStateIndex++;
-            historyState = browserHistory[browserHistoryStateIndex];
+            previousBrowserHistory.Push(currentState);
+            currentState = forwardBrowserHistory.Pop();
+            historyState = currentState;
             return true;
         }
 

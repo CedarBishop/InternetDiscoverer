@@ -12,6 +12,16 @@ public class RecommendedVideos : MonoBehaviour
         print("FillRecomendedVideos");
         List<VideoData> recommendedVideos = GameManager.instance?.GenerateRecomendedVideos(videoData, isHomePage);
 
+        Setup(recommendedVideos);
+    }
+
+    public void LoadHistory (BrowserHistoryState historyState)
+    {
+        Setup(historyState.videoDatas);
+    }
+
+    private void Setup (List<VideoData> recommendedVideos)
+    {
         int index = 0;
         foreach (VideoOption video in videoOptions)
         {

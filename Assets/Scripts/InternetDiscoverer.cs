@@ -33,14 +33,18 @@ public class InternetDiscoverer : MonoBehaviour
             }
             else
             {
-
+                watchPage.LoadHistoryState(state);
             }
         }
     }
 
     public void ForwardButton ()
     {
-
+        if (GameManager.instance.GetNextBrowserState(out BrowserHistoryState state))
+        {
+            watchPage.LoadHistoryState(state);
+            print(state.currentVideo.title);
+        }
     }
 
     public void RefreshButton ()

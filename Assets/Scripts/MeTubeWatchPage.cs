@@ -21,7 +21,16 @@ public class MeTubeWatchPage : MonoBehaviour
         GenerateComments(videoData);
     }
 
+    public void LoadHistoryState (BrowserHistoryState historyState)
+    {
+        recomendedVideos?.LoadHistory(historyState);
 
+        videoTitleText.text = historyState.currentVideo.title;
+        viewsText.text = "views: " + historyState.currentVideo.views;
+        ratingsFillImage.fillAmount = historyState.currentVideo.ratings / 5.0f;
+
+        GenerateComments(historyState.currentVideo);
+    }
 
     void GenerateComments(VideoData videoData)
     {
