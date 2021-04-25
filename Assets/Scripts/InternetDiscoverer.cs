@@ -45,7 +45,7 @@ public class InternetDiscoverer : MonoBehaviour
 
         homePage?.LoadRecommendedVideos();
 
-        GlobalSoundManager.Inst.PlayOneShot(SoundEffectEnum.Test1);
+        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void BackButton ()
@@ -62,7 +62,7 @@ public class InternetDiscoverer : MonoBehaviour
                 StartCoroutine("CoLoadPage");
             }
         }
-        GlobalSoundManager.Inst.PlayOneShot(SoundEffectEnum.Test1);
+        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void ForwardButton ()
@@ -72,13 +72,13 @@ public class InternetDiscoverer : MonoBehaviour
             watchPage.LoadHistoryState(state);
             StartCoroutine("CoLoadPage");
         }
-        GlobalSoundManager.Inst.PlayOneShot(SoundEffectEnum.Test1);
+        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void RefreshButton ()
     {
         StartCoroutine("CoLoadPage");
-        GlobalSoundManager.Inst.PlayOneShot(SoundEffectEnum.Test1);
+        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void WatchVideo (VideoData videoData)
@@ -87,7 +87,7 @@ public class InternetDiscoverer : MonoBehaviour
         watchPage.gameObject.SetActive(true);
         StartCoroutine("CoLoadPage");
         watchPage.LoadVideo(videoData);
-        GlobalSoundManager.Inst.PlayOneShot(SoundEffectEnum.Test1);
+        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     IEnumerator CoLoadPage ()
@@ -111,5 +111,23 @@ public class InternetDiscoverer : MonoBehaviour
         
         // Set Cursor to normal
         gameManager.cursorManager.mouseEventNormal.Invoke();
+    }
+
+    public void MinimiseButton ()
+    {
+
+        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
+    }
+
+    public void MaxmiseButton ()
+    {
+
+        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
+    }
+
+    public void CloseButton ()
+    {
+
+        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 }
