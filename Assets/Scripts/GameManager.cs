@@ -37,7 +37,10 @@ public class GameManager : MonoBehaviour
         {
             foreach (var item in allVideos)
             {
-                recomendedVideos.Add(item);
+                if (!item.videoTags.Contains(VideoTags.Deep))
+                {
+                    recomendedVideos.Add(item);
+                }                
             }
         }
         else
