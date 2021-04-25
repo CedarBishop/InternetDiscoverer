@@ -19,9 +19,14 @@ public class CursorManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = !hideClientMouse;
-        currentCursor = defaultCursor;
-        UpdateCursor(currentCursor);
+        if (hideClientMouse)
+            Cursor.visible = !hideClientMouse;
+        else
+        {
+            currentCursor = defaultCursor;
+            UpdateCursor(currentCursor);
+        }
+
     }
 
     public void UpdateCursor(Cursors c)
