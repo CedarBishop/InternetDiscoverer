@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum VideoTags { Funny, Animals, Drama, Clickbait, Cooking, Music, Movies, Sport, Education, Beauty, Deep, Gaming, News, Celebrity }
+
 [CreateAssetMenu]
 public class VideoData : ScriptableObject
 {

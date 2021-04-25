@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public enum VideoTags {Funny, Animals, Cute, Drama, Conspiracy, Cooking, Music, Movies, Fails, Sport, Fashion, Science, Beauty, Dark, Gaming, News, Celebrity}
-
 public class VideoOption : MonoBehaviour
 {
     public VideoData videoData;
