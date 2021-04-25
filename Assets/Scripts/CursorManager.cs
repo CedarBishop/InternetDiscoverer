@@ -43,6 +43,8 @@ public class CursorManager : MonoBehaviour
     public void UpdateCursor(Cursors c)
     {
         currentCursor = c;
+
+        /// NOTE:: mouseShadowSprites[0].sprite is the MAIN cursor. It's the first child in the gameobject and I ceebs distinguishing it lmao - Max.
         mouseShadowSprites[0].sprite = currentCursor.cursor;
     }
 
