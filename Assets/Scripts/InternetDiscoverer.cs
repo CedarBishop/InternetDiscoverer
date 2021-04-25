@@ -26,7 +26,13 @@ public class InternetDiscoverer : MonoBehaviour
 
     private void Start()
     {
-        HomeButton();
+        homePage.gameObject.SetActive(true);
+        watchPage.gameObject.SetActive(false);
+        StartCoroutine("CoLoadPage");
+
+        GameManager.instance?.ClearHistory();
+
+        homePage?.LoadRecommendedVideos();
     }
 
     public void HomeButton ()
@@ -38,6 +44,8 @@ public class InternetDiscoverer : MonoBehaviour
         GameManager.instance?.ClearHistory();
 
         homePage?.LoadRecommendedVideos();
+
+        GlobalSoundManager.Inst.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void BackButton ()
@@ -54,6 +62,7 @@ public class InternetDiscoverer : MonoBehaviour
                 StartCoroutine("CoLoadPage");
             }
         }
+        GlobalSoundManager.Inst.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void ForwardButton ()
@@ -63,11 +72,13 @@ public class InternetDiscoverer : MonoBehaviour
             watchPage.LoadHistoryState(state);
             StartCoroutine("CoLoadPage");
         }
+        GlobalSoundManager.Inst.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void RefreshButton ()
     {
         StartCoroutine("CoLoadPage");
+        GlobalSoundManager.Inst.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void WatchVideo (VideoData videoData)
@@ -76,6 +87,7 @@ public class InternetDiscoverer : MonoBehaviour
         watchPage.gameObject.SetActive(true);
         StartCoroutine("CoLoadPage");
         watchPage.LoadVideo(videoData);
+        GlobalSoundManager.Inst.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     IEnumerator CoLoadPage ()
