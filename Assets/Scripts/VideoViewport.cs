@@ -8,10 +8,19 @@ public class VideoViewport : MonoBehaviour
 {
     public Image videoProgressBar;
     public Text timeText;
+    public Image playPauseButton;
+    public Sprite playSprite;
+    public Sprite pauseSprite;
+
     public bool isPlaying;
 
     private float timeIntoVideo;
     private float videoLengthTime;
+
+    private void Start()
+    {
+        playPauseButton.sprite = (isPlaying) ? pauseSprite : playSprite;
+    }
 
     public void Setup (VideoData videoData)
     {
@@ -23,6 +32,8 @@ public class VideoViewport : MonoBehaviour
     public void TogglePlayPause ()
     {
         isPlaying = !isPlaying;
+
+        playPauseButton.sprite = (isPlaying) ? pauseSprite : playSprite;
     }
 
     private void Update()
