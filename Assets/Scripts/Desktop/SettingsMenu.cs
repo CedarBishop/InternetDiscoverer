@@ -29,6 +29,12 @@ public class SettingsMenu : MonoBehaviour
         InititalSetup();
     }
 
+    public void TogglePP(bool _Toggle)
+    {
+        PostProcessingManager.Inst.TogglePostPrcessing(_Toggle);
+        IsPostProcessingOn = _Toggle;
+    }
+
     public void UpdateSFXSlider(float _Adjustment)
     {
         SFXVol = _Adjustment;
@@ -56,6 +62,7 @@ public class SettingsMenu : MonoBehaviour
         SFXVolSlider.minValue = 0;
         SFXVolSlider.value = SFXVol;
         SetCursor(CursorType.Normal);
+        SubToEvents();
     }
 
     public void ToggleBlue()
@@ -98,6 +105,17 @@ public class SettingsMenu : MonoBehaviour
                 CursorNormal.image.color = CursorBGColour;
                 break;
         }
+    }
+
+    private void AcvivateEntity(MenuItem _Item)
+    {
+        if(_Item == MenuItem.SettingsScreen)
+            gameObject.SetActive(true);
+    }
+
+    public void SubToEvents()
+    {
+        UIManager.SubToActivationEvent(AcvivateEntity);
     }
 }
 

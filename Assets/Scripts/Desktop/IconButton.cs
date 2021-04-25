@@ -32,8 +32,7 @@ public class IconButton : MonoBehaviour
         {
             Duration = 0;
             Clicked = false;
-            Desktop.InvokeItemToggleEvent(ItemToOpen);
+            UIManager.InvokeActivationEvent(ItemToOpen);
         }
-
     }
 }
