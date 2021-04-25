@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum MenuItem { Desktop, StartMenu, SettingsScreen, Explorer}
 public class Desktop : MonoBehaviour
 {
     public Text ClockTimeText;
     private Clock PersistentClock;
-    public static Action<MenuItem> ItemToggleEvent;
+    public IconButton StartButton;
+    public IconButton ExplorerButton;
+    public IconButton SettingsButtton;
 
     void Start()
     {
@@ -19,32 +20,32 @@ public class Desktop : MonoBehaviour
     void Update()
     {
         PersistentClock.UpdateClock(Time.deltaTime);
-        
-        
+        ClockTimeText.text = PersistentClock.Hours +":"+ PersistentClock.Minutes;
     }
 
-    public static void SubToItemToggleEvennt(Action<MenuItem> _SubFunction)
+
+
+
+    private void AcvivateEntity(MenuItem _Item)
     {
-        ItemToggleEvent += _SubFunction;
+        if (_Item == MenuItem.Desktop)
+            gameObject.SetActive(true);
+        else if(_Item == MenuItem.Explorer)
+            gameObject.SetActive(false);       
+
     }
-    public static void InvokeItemToggleEvent(MenuItem _Item)
+    public void SubToEvents()
     {
-        ItemToggleEvent?.Invoke(_Item);
+        UIManager.SubToActivationEvent(AcvivateEntity);
     }
 }
-
-
-
-
-
-
 
 public class Clock
 {
     public int Hours;
     public int Minutes;
     private float Min;
-    private float Multiplier = 4f;
+    private float Multiplier = 60f;
 
     public void UpdateClock(float _DeltaTime)
     {
