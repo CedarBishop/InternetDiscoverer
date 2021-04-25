@@ -11,6 +11,7 @@ public class MeTubeWatchPage : MonoBehaviour
     public Text viewsText;
     public Text youtuberText;
     public Text dateAddedText;
+    public VideoViewport videoViewport;
 
 
     public void LoadVideo(VideoData videoData)
@@ -34,6 +35,8 @@ public class MeTubeWatchPage : MonoBehaviour
         ratingsFillImage.fillAmount = videoData.ratings / 5.0f;
         youtuberText.text = "By " + videoData.youtuber;
         dateAddedText.text = "Date Added: " + videoData.dateAdded;
+
+        videoViewport.Setup(videoData);
     }
 
     void GenerateComments(VideoData videoData)

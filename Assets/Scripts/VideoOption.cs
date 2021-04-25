@@ -37,7 +37,7 @@ public class VideoOption : MonoBehaviour
         thumbnail.sprite = (isHomePage) ? videoData.largeThumbnail : videoData.smallThumbnail;
         videoTitle.text = videoData.title;
         viewsText.text = videoData.views + " views";
-        lengthText.text = videoData.lengthTime;
+        lengthText.text = Helpers.SecondsToMinutesText(videoData.lengthTimeInSeconds);
         uploadDateText.text = "Added: " + videoData.dateAdded;
         youtuberText.text = "by " + videoData.youtuber;
     }

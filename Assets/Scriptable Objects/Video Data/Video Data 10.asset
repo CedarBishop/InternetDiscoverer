@@ -16,7 +16,7 @@ MonoBehaviour:
   largeThumbnail: {fileID: 21300000, guid: 86eb2d8e66bba1d44958b40daa86577a, type: 3}
   title: Music for Pandas
   views: 2147483647
-  lengthTime: 9:47
+  lengthTimeInSeconds: 180
   dateAdded: 25.07.2007
   youtuber: Binging with Baby
   ratings: 5
