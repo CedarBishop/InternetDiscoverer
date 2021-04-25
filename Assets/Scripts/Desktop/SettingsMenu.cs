@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum CursorType { Normal, Blue, Orange}
 public class SettingsMenu : MonoBehaviour
 {
     public Slider MusicVolSlider;
@@ -15,9 +16,13 @@ public class SettingsMenu : MonoBehaviour
     public Toggle PostProcesingToggle;
     private bool IsPostProcessingOn = true;
 
-    public Toggle Cursor1;
-    public Toggle Cursor2;
-    public Toggle Cursor3;
+    public CursorType CurrentCursor = CursorType.Normal;
+    public Button CursorBlue;
+    public Button CursorOrange;
+    public Button CursorNormal;
+
+    public Color32 CursorBGColour = Color.white;
+    public Color32 CursorSectionColour = Color.cyan;
 
     public void Start()
     {
@@ -50,5 +55,50 @@ public class SettingsMenu : MonoBehaviour
         SFXVolSlider.maxValue = 100;
         SFXVolSlider.minValue = 0;
         SFXVolSlider.value = SFXVol;
+        SetCursor(CursorType.Normal);
+    }
+
+    public void ToggleBlue()
+    {
+        SetCursor(CursorType.Blue);
+    }
+    public void ToggleNormal()
+    {
+        SetCursor(CursorType.Normal);
+    }
+    public void ToggleOrange()
+    {
+        SetCursor(CursorType.Orange);
+    }
+
+    private void SetCursor(CursorType _Type)
+    {
+        CurrentCursor = _Type;
+        ChangeButtonBackgroundColour(_Type);
+        UIManager.InvokeCursorEvent(_Type);
+    }
+
+    private void ChangeButtonBackgroundColour(CursorType _Type)
+    {
+        switch (_Type)
+        {
+            case CursorType.Normal:
+                CursorBlue.image.color = CursorBGColour;
+                CursorNormal.image.color = CursorSectionColour;
+                CursorOrange.image.color = CursorBGColour;
+                break;
+            case CursorType.Blue:
+                CursorBlue.image.color = CursorSectionColour;
+                CursorNormal.image.color = CursorBGColour;
+                CursorOrange.image.color = CursorBGColour;
+                break;
+            case CursorType.Orange:
+                CursorOrange.image.color = CursorSectionColour;
+                CursorBlue.image.color = CursorBGColour;
+                CursorNormal.image.color = CursorBGColour;
+                break;
+        }
     }
 }
+
+

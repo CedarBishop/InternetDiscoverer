@@ -73,4 +73,25 @@ public class CursorManager : MonoBehaviour
     {
         Cursor.SetCursor(tex, hotSpot, cursorMode);
     }
+
+    private void SubToCursorEvent()
+    {
+        UIManager.SubToCursorEvent(ReactToCursorEvent);
+    }
+
+    private void ReactToCursorEvent(CursorType _Type)
+    {
+        switch (_Type)
+        {
+            case CursorType.Normal:
+                UpdateCursor(cursorNormal);
+                break;
+            case CursorType.Blue:
+                UpdateCursor(cursorBlue);
+                break;
+            case CursorType.Orange:
+                UpdateCursor(cursorOrange);
+                break;
+        }
+    }
 }
