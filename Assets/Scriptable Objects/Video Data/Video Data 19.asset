@@ -16,7 +16,7 @@ MonoBehaviour:
   largeThumbnail: {fileID: 21300000, guid: d37a2e351bbb2824e9a70772be3835fc, type: 3}
   title: The Movie That's Banned EVERYWHERE
   views: 2147483647
-  lengthTime: 9:47
+  lengthTimeInSeconds: 357
   dateAdded: 25.07.2007
   youtuber: Binging with Baby
   ratings: 5

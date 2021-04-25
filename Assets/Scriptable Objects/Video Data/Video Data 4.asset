@@ -16,7 +16,7 @@ MonoBehaviour:
   largeThumbnail: {fileID: 21300000, guid: 2559756fa4cf2884b9e272231e3e4dd9, type: 3}
   title: New Blockbuster review
   views: 453453
-  lengthTime: 9:47
+  lengthTimeInSeconds: 531
   dateAdded: 25.07.2007
   youtuber: Mr Beast
   ratings: 5

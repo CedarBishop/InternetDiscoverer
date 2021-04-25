@@ -12,7 +12,7 @@ public class VideoData : ScriptableObject
     public Sprite largeThumbnail;
     public string title;
     public int views;
-    public string lengthTime;
+    public int lengthTimeInSeconds;
     public string dateAdded;
     public string youtuber;
     public float ratings;

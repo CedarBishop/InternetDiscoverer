@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     private BrowserHistoryState currentState;
 
+    public CursorManager cursorManager = null;
+
     private void Awake()
     {
         if (instance == null)
@@ -24,6 +26,11 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
         {
             Destroy(gameObject);
+        }
+
+        if (cursorManager == null)
+        {
+            cursorManager = FindObjectOfType<CursorManager>();
         }
     }
 
