@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a0c8e3152edfc4e853a5cb1487859d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomVideoChance: {x: 1, y: 4}
   allVideos:
   - {fileID: 11400000, guid: f49ac67098492624e81eb5ea93c2b545, type: 2}
   - {fileID: 11400000, guid: 0ddc232a92f10f94da78f8464a05722a, type: 2}
@@ -57,3 +58,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5598b9845ea84004fa3a0d85a8031a96, type: 2}
   - {fileID: 11400000, guid: 8aefadc34fd7a624b9867c27569998d8, type: 2}
   - {fileID: 11400000, guid: 279c2ae70c7af674ca3afe525f1243c3, type: 2}
+  - {fileID: 11400000, guid: 625a552290e8ab6408212ce9652c9c20, type: 2}
+  - {fileID: 11400000, guid: 74e6f64dd90c6d1469d8b2aa53637144, type: 2}
+  - {fileID: 11400000, guid: 88923530823ca20469ff9d1f7c68388d, type: 2}
+  - {fileID: 11400000, guid: a30cd23b3b0c2b04c8e64df00224db75, type: 2}
+  - {fileID: 11400000, guid: 3b52a8feb832c1e47b34ecdb279868ad, type: 2}
+  - {fileID: 11400000, guid: ea57e5e80af192f41acbbcfe54fddbf0, type: 2}
+  - {fileID: 11400000, guid: 3d32f11702e2062439b0a52cca5e5459, type: 2}
+  - {fileID: 11400000, guid: 1f26e58319047a448aa65f3e81165fc3, type: 2}
+  - {fileID: 11400000, guid: af931fbf42763ea4a97649874ac521cf, type: 2}
+  - {fileID: 11400000, guid: ef0070afc1db6e94ea7525012c1b55ee, type: 2}
+  - {fileID: 11400000, guid: 11bf8c17306980d46aa245282154a1d9, type: 2}
