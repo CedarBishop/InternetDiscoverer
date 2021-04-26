@@ -21,15 +21,17 @@ public class PostProcessingManager : MonoBehaviour
     void Start()
     {
         GameManager.ConsecutiveDeepVideosUpdated += IncrementDEEP;
+        GameManager.CrashRestart += OnCrashRestart;
         InitialSetup();
     }
 
     private void Update()
     {
-        PPVDEEP.weight = Mathf.Lerp(PPVDEEP.weight, DEEPtarget, 5 * Time.deltaTime);
+        PPVDEEP.weight = Mathf.Lerp(PPVDEEP.weight, DEEPtarget, 7.5f * Time.deltaTime);
 
         if (DEEPER)
         {
+            // Fancy Effects
             PPVDEEPER.weight += 0.075f * Time.deltaTime;
         }
     }
@@ -65,12 +67,20 @@ public class PostProcessingManager : MonoBehaviour
 
     public void IncrementDEEP(int i)
     {
-        DEEPtarget = i * DEEPmultiplier;
+        DEEPtarget = i * ( 1.0f / (float)GameManager.instance.amountOfDeepVideosToCrash);
         //PPVDEEP.weight += DEEPtarget;
         Debug.Log("DEEP target: " + DEEPtarget);
-        if (PPVDEEP.weight >= 1)
+        if (i >= GameManager.instance.amountOfDeepVideosToCrash)
         {
             DEEPER = true;
         }
     }
+
+    public void OnCrashRestart()
+    {
+        DEEPER = false;
+        PPVDEEP.weight = 0f;
+        PPVDEEPER.weight = 0f;
+    }
+
 }

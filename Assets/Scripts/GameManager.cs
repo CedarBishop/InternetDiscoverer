@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public static event Action TargetVideoReset;
     public static event Action<int> ConsecutiveDeepVideosUpdated;
 
+    public static event Action CrashRestart;
+
     public Vector2Int randomVideoChance = new Vector2Int(1,4);
 
     public VideoData[] allVideos;
@@ -237,6 +239,15 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(crashTimeDelay);
         UIManager.instance.SetMenuItem(MenuItem.Login);
+        if (CrashRestart != null)
+        {
+            CrashRestart();
+        }
+        consecutiveDeepVideos = 0;
+        if (ConsecutiveDeepVideosUpdated != null)
+        {
+            ConsecutiveDeepVideosUpdated(consecutiveDeepVideos);
+        }
     }
 }
 
