@@ -12,6 +12,8 @@ public class Desktop : MonoBehaviour
     public IconButton ExplorerButton;
     public IconButton SettingsButtton;
 
+    public SettingsMenu settingsMenu;
+
     void Start()
     {
         SubToEvents();
@@ -30,7 +32,7 @@ public class Desktop : MonoBehaviour
 
     public void OpenSettingsButton()
     {
-        UIManager.instance.SetMenuItem(MenuItem.SettingsScreen);
+        settingsMenu.gameObject.SetActive(true);
     }
 
     public void OpenMessenger ()

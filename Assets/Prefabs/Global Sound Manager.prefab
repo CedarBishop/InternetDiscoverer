@@ -61,4 +61,6 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 30af2f6739c73354f817062217ff78dd, type: 3}
   AvaliableMusicTracks:
   - MTEnum: 0
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: e077c32106343f442b4f93ee3bb175b6, type: 3}
+  - MTEnum: 1
+    Clip: {fileID: 8300000, guid: d1db677595490504eb4fb052bef05afd, type: 3}

@@ -22,6 +22,7 @@ public class SettingsMenu : MonoBehaviour
     public void Start()
     {
         InititalSetup();
+        Close();
     }
 
     public void TogglePP(bool _Toggle)
@@ -70,6 +71,11 @@ public class SettingsMenu : MonoBehaviour
     public void SubToEvents()
     {
         UIManager.SubToActivationEvent(AcvivateEntity);
+    }
+
+    public void Close ()
+    {
+        gameObject.SetActive(false);
     }
 }
 

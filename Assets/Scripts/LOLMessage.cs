@@ -12,7 +12,7 @@ public class LOLMessage : MonoBehaviour
 
     public void Setup(string messageContent, bool isYou)
     {
-        messageText.text = messageContent;
+        messageText.text = ((isYou) ? GameManager.instance.GetUserName() : "Rival") + ": " + messageContent;
         messageText.alignment = (isYou) ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft;
         messageText.color = (isYou) ? yourColor : friendColor;
     }

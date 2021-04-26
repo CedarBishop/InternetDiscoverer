@@ -25,15 +25,23 @@ public class LOLMessenger : MonoBehaviour
     {
         Close();
         GameManager.TargetVideoReset += () => hasGivenObjective = false;
+        GameManager.CrashRestart += OnCrashRestart;
         InternetDiscoverer.NewPageLoaded += OnNewPageLoaded;
     }
 
     private void OnDestroy()
     {
         GameManager.TargetVideoReset -= () => hasGivenObjective = false;
+        GameManager.CrashRestart -= OnCrashRestart;
         InternetDiscoverer.NewPageLoaded -= OnNewPageLoaded;
     }
 
+
+    private void OnCrashRestart ()
+    {
+        hasGivenObjective = false;
+        Close();
+    }
 
 
     private void OnNewPageLoaded (VideoData currentVideo)

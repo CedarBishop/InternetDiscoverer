@@ -53,6 +53,11 @@ public class GameManager : MonoBehaviour
         ResetTargetVideo();
     }
 
+    private void Start()
+    {
+        GlobalSoundManager.Inst.ChangeMusicTrack(MusicTrackEnum.Background);
+    }
+
     public List<VideoData> GenerateRecomendedVideos (VideoData newVideo, bool isHomePage)
     {
         previousBrowserHistory.Push(currentState);
@@ -237,6 +242,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator CoCrash ()
     {
+        GlobalSoundManager.Inst.ChangeMusicTrack(MusicTrackEnum.Crash);
         yield return new WaitForSeconds(crashTimeDelay);
         UIManager.instance.SetMenuItem(MenuItem.Login);
         if (CrashRestart != null)
@@ -248,6 +254,7 @@ public class GameManager : MonoBehaviour
         {
             ConsecutiveDeepVideosUpdated(consecutiveDeepVideos);
         }
+        GlobalSoundManager.Inst.ChangeMusicTrack(MusicTrackEnum.Background);
     }
 }
 

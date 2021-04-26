@@ -9,6 +9,7 @@ public class FBIAlert : MonoBehaviour
     private void Start()
     {
         GameManager.ConsecutiveDeepVideosUpdated += CheckIfShouldOpen;
+        GameManager.CrashRestart += Close;
         Close();
     }
 

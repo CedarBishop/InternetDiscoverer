@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum SoundEffectEnum { ClickDOWN, ClickUP, Scroll, ButtonOPEN, ButtonCLOSE, Login }
-public enum MusicTrackEnum { Test1, Test2, LoopTest }
+public enum MusicTrackEnum { Background, Crash, Test1, Test2, LoopTest }
 public enum TrackFadeType { FadeIn, FadeOut }
 
 public class GlobalSoundManager : MonoBehaviour
