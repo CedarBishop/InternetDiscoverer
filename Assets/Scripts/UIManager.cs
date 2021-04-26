@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using UnityEditor;
 
-public enum MenuItem { Desktop, StartMenu, SettingsScreen, Explorer }
+public enum MenuItem { Desktop, StartMenu, SettingsScreen, Explorer, Login }
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance = null;
 
     public Desktop desktop;
     public InternetDiscoverer internetDiscoverer;
+    public GameObject login;
+    public InputField username;
 
     public static Action<MenuItem> ActivationEvent;
     public static Action<CursorType> CursorToggleEvent;
@@ -48,6 +51,7 @@ public class UIManager : MonoBehaviour
     public void SetMenuItem (MenuItem menuItem)
     {
         desktop.gameObject.SetActive(false);
+        login.gameObject.SetActive(false);
         internetDiscoverer.gameObject.SetActive(false);
 
         currentMenuItem = menuItem;
@@ -63,6 +67,9 @@ public class UIManager : MonoBehaviour
                 break;
             case MenuItem.Explorer:
                 internetDiscoverer.gameObject.SetActive(true);
+                break; 
+            case MenuItem.Login:
+                login.SetActive(true);
                 break;
             default:
                 break;
@@ -86,5 +93,18 @@ public class UIManager : MonoBehaviour
     public static void InvokeCursorEvent(CursorType _Cursor)
     {
         CursorToggleEvent?.Invoke(_Cursor);
+    }
+
+    public void SetMenuItemDesktop()
+    {
+        if (username.text != "")
+        {
+            GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Login);
+            SetMenuItem(MenuItem.Desktop);
+        }
+        else
+        {
+            GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.ButtonCLOSE);
+        }
     }
 }

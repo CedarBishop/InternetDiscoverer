@@ -57,6 +57,8 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: ae91b5c08bc89cb4e9827ddfea0b4c6e, type: 3}
   - SFXEnum: 4
     Clip: {fileID: 8300000, guid: af9e5ae08a86c5a47a0d957060bbc259, type: 3}
+  - SFXEnum: 5
+    Clip: {fileID: 8300000, guid: 30af2f6739c73354f817062217ff78dd, type: 3}
   AvaliableMusicTracks:
   - MTEnum: 0
     Clip: {fileID: 0}
