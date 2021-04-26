@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2780151079053195456, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
+      propertyPath: weight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780151079053195458, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
+      propertyPath: m_Name
+      value: Post-Processing Layer DEEP
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780151079053195458, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2780151079194545563, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -181,6 +193,26 @@ PrefabInstance:
     - target: {fileID: 2780151079823505065, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
       propertyPath: m_Name
       value: Post-Processing Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547207458365464775, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
+      propertyPath: m_Name
+      value: Post-Processing Layer Normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271407324957177896, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
+      propertyPath: PPVDEEP
+      value: 
+      objectReference: {fileID: 869228759}
+    - target: {fileID: 7271407324957177896, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
+      propertyPath: PPVDEEPER
+      value: 
+      objectReference: {fileID: 1951951196}
+    - target: {fileID: 7271407324957177896, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
+      propertyPath: PPVNormal
+      value: 
+      objectReference: {fileID: 822908479}
+    - target: {fileID: 8707590457947697728, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
@@ -246,6 +278,17 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 5716254748215971135, guid: 08014f57038dce3489d6ec159b41c737, type: 3}
   m_PrefabInstance: {fileID: 5716254748197795136}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &822908479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1103670531857917173, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
+  m_PrefabInstance: {fileID: 33670310}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &845952973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -263,6 +306,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf7afd2caae0a448be2205e6d81ec80, type: 3}
+--- !u!114 &869228759 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2780151079053195456, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
+  m_PrefabInstance: {fileID: 33670310}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1166723171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -893,6 +947,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0ad581f5f8412b42a4bb122dbad37f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1951951196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6892318758466734434, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
+  m_PrefabInstance: {fileID: 33670310}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1694480789095265142
