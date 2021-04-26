@@ -8,11 +8,18 @@ public class LOLMessenger : MonoBehaviour
     public GameObject popup;
     public Scrollbar messageBoxScrollBar;
     public VerticalLayoutGroup messageVerticalBox;
+    public Button[] responseButtons;
+    public Text responseText1;
+    public Text responseText2;
+
 
     public LOLMessage messagePrefab;
     private bool hasGivenObjective;
     private bool isNotFirstRace;
     private bool raceFinished;
+
+    private bool canRespond;
+    private float bottomOfScrollbarValue;
 
     private void Start()
     {
@@ -73,8 +80,9 @@ public class LOLMessenger : MonoBehaviour
             CreateMessage(messageContent, false);
             messageContent = "The target video is " + targetVideo;
             CreateMessage(messageContent, false);
-        }   
+        }
 
+        SetResponses("Ok", "Bite me!");
 
         hasGivenObjective = true;
         isNotFirstRace = true;
@@ -92,6 +100,8 @@ public class LOLMessenger : MonoBehaviour
         CreateMessage(messageContent, false);
         messageContent = username + "You better find it soon.";
         CreateMessage(messageContent, false);
+
+        SetResponses("Ok", "Bite me!");
     }
 
     private void ObjectiveComplete (VideoData currentVideo)
@@ -116,6 +126,7 @@ public class LOLMessenger : MonoBehaviour
         }
 
         CreateMessage(messageContent, false);
+        SetResponses("Ok", "Bite me!");
 
         raceFinished = true;        
     }
@@ -123,6 +134,13 @@ public class LOLMessenger : MonoBehaviour
     public void Close ()
     {
         popup.SetActive(false);
+        canRespond = false;
+
+        foreach (var button in responseButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
+
 
         if (raceFinished)
         {
@@ -135,7 +153,37 @@ public class LOLMessenger : MonoBehaviour
     {
         LOLMessage message = Instantiate(messagePrefab, messageVerticalBox.transform);
         message.Setup(messageContent, isYou);
-        messageBoxScrollBar.value = 0;
+        messageBoxScrollBar.value = -0.1f;
+    }
+
+    private void SetResponses (string response1, string response2)
+    {
+        foreach (var button in responseButtons)
+        {
+            button.gameObject.SetActive(true);
+        }
+        responseText1.text = response1;
+        responseText2.text = response2;
+        canRespond = true;
+    }
+
+    public void Respond (int buttonResponseNumber)
+    {
+        if (buttonResponseNumber == 1)
+        {
+            CreateMessage(responseText1.text, true);
+            canRespond = false;
+        }
+        else if (buttonResponseNumber == 2)
+        {
+            CreateMessage(responseText2.text, true);
+            canRespond = false;
+        }
+
+        foreach (var button in responseButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
     }
 
     public void Open ()
