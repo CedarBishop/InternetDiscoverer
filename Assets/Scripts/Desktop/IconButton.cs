@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class IconButton : MonoBehaviour
 {
+    public enum ClickType { Single, Double}
     private float DoubleClickTime = 0.25f;
     private float Duration = 0;
     private bool Clicked = false;
     public Button Icon;
     public MenuItem ItemToOpen;
+    public ClickType Type;
 
     public void Update()
     {
@@ -26,6 +28,9 @@ public class IconButton : MonoBehaviour
 
     public void ButtonOnClick()
     {
+        if(Type == ClickType.Single)
+            UIManager.InvokeActivationEvent(ItemToOpen);
+
         if (!Clicked)
             Clicked = true;
         else
