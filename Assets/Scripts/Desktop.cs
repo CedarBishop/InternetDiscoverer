@@ -49,4 +49,9 @@ public class Desktop : MonoBehaviour
     {
         UIManager.SubToActivationEvent(OnActivation);
     }
+
+    public void PlayOpenAssetSFX()
+    {
+        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.ButtonOPEN);
+    }
 }
