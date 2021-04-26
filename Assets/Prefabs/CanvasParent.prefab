@@ -977,6 +977,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6204926198591670222, guid: 481d3ec6b8c1ebe41a726bfee7d25379, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204926198591670222, guid: 481d3ec6b8c1ebe41a726bfee7d25379, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204926198591670222, guid: 481d3ec6b8c1ebe41a726bfee7d25379, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7953703550527870598, guid: 481d3ec6b8c1ebe41a726bfee7d25379, type: 3}
       propertyPath: m_Name
       value: Desktop
