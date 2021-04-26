@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject login;
     public LOLMessenger messenger;
     public InputField username;
+    public GameObject BlueScreen;
 
     public static Action<MenuItem> ActivationEvent;
     public static Action<CursorType> CursorToggleEvent;

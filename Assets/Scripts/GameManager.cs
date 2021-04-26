@@ -244,6 +244,13 @@ public class GameManager : MonoBehaviour
     {
         GlobalSoundManager.Inst.ChangeMusicTrack(MusicTrackEnum.Crash, false);
         yield return new WaitForSeconds(crashTimeDelay);
+
+        UIManager.instance.BlueScreen.SetActive(true);
+        GlobalSoundManager.Inst.SkipMusicToTime(18f);
+        PostProcessingManager.Inst.OnCrashRestart();
+        yield return new WaitForSeconds(crashTimeDelay);
+        UIManager.instance.BlueScreen.SetActive(false);
+
         UIManager.instance.SetMenuItem(MenuItem.Login);
         if (CrashRestart != null)
         {

@@ -45,6 +45,13 @@ public class GlobalSoundManager : MonoBehaviour
         ReturnSFXSourcesToPool();
     }
 
+    public void SkipMusicToTime(float _PlayTime)
+    {
+        MusicSourceCurrent.Stop();
+        MusicSourceCurrent.time = _PlayTime;
+        MusicSourceCurrent.Play();
+    }
+
     public void PlayOneShot(SoundEffectEnum _Effect)
     {
         AudioSource AS = GetAvaliableSFXSource();
