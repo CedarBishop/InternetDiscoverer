@@ -14,6 +14,10 @@ public class InternetDiscoverer : MonoBehaviour
     public Image loadImage;
     public Image CloseImage;
 
+    public InputField webURL;
+    public InputField meTubeBigSearch;
+    public InputField meTubeSmallSearch;
+
     public float maxInitialWaitTime;
     public float maxIncrementWaitTime;
     public float maxIncrementAmount;
@@ -40,7 +44,16 @@ public class InternetDiscoverer : MonoBehaviour
 
     void LoadHomePage (bool withoutLoadingScreen = false)
     {
+        // Reset URL and other search bars to their defaults
+        if (meTubeSmallSearch.IsActive())
+        {
+            meTubeSmallSearch.text = "";
+        }
         homePage.gameObject.SetActive(true);
+        webURL.text = "https://www.metube.com";
+        meTubeBigSearch.text = "";
+
+
         watchPage.gameObject.SetActive(false);
 
         GameManager.instance?.ClearHistory();
