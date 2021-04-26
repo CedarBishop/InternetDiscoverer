@@ -23,6 +23,14 @@ public class InternetDiscoverer : MonoBehaviour
     private void Start()
     {
         SubToEvents();
+
+        homePage.gameObject.SetActive(true);
+        watchPage.gameObject.SetActive(false);
+
+        GameManager.instance?.ClearHistory();
+        currentPageVideoData = null;
+
+        homePage?.LoadRecommendedVideos();
     }
 
 
@@ -51,6 +59,7 @@ public class InternetDiscoverer : MonoBehaviour
             else
             {
                 watchPage.LoadHistoryState(state);
+                GameManager.instance.AddClicks(2);
                 StartCoroutine("CoLoadPage");
             }
         }
@@ -80,6 +89,7 @@ public class InternetDiscoverer : MonoBehaviour
         currentPageVideoData = videoData;
         StartCoroutine("CoLoadPage");
         watchPage.LoadVideo(videoData);
+        GameManager.instance.AddClicks(1);
         //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 

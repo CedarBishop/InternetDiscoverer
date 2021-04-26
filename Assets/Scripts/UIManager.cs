@@ -100,6 +100,7 @@ public class UIManager : MonoBehaviour
         if (username.text != "")
         {
             GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Login);
+            GameManager.instance.SetUserName(username.text);
             SetMenuItem(MenuItem.Desktop);
         }
         else

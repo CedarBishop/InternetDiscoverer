@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     private VideoData targetVideo;
 
+    private string username;
+
     private void Awake()
     {
         if (instance == null)
@@ -175,6 +177,16 @@ public class GameManager : MonoBehaviour
         {
             TargetVideoReset();
         }
+    }
+
+    public string GetUserName ()
+    {
+        return username;
+    }
+
+    public void SetUserName (string value)
+    {
+        username = value;
     }
 }
 
