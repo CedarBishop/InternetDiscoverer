@@ -34,7 +34,7 @@ public class InternetDiscoverer : MonoBehaviour
 
         homePage?.LoadRecommendedVideos();
 
-        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
+        //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void BackButton ()
@@ -51,7 +51,7 @@ public class InternetDiscoverer : MonoBehaviour
                 StartCoroutine("CoLoadPage");
             }
         }
-        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
+        //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void ForwardButton ()
@@ -61,13 +61,13 @@ public class InternetDiscoverer : MonoBehaviour
             watchPage.LoadHistoryState(state);
             StartCoroutine("CoLoadPage");
         }
-        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
+        //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void RefreshButton ()
     {
         StartCoroutine("CoLoadPage");
-        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
+        //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void WatchVideo (VideoData videoData)
@@ -76,7 +76,7 @@ public class InternetDiscoverer : MonoBehaviour
         watchPage.gameObject.SetActive(true);
         StartCoroutine("CoLoadPage");
         watchPage.LoadVideo(videoData);
-        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
+        //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     IEnumerator CoLoadPage ()
@@ -105,13 +105,13 @@ public class InternetDiscoverer : MonoBehaviour
     public void MinimiseButton ()
     {
         UIManager.instance.SetMenuItem(MenuItem.Desktop);
-        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
+        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.ButtonCLOSE);
     }
 
     public void MaxmiseButton ()
     {
 
-        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
+        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.ButtonOPEN);
     }
 
     public void CloseButton ()
@@ -122,7 +122,7 @@ public class InternetDiscoverer : MonoBehaviour
         homePage?.LoadRecommendedVideos();
 
         UIManager.instance.SetMenuItem(MenuItem.Desktop);
-        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
+        GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.ButtonCLOSE);
     }
 
     public void OpenExplorer()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SoundEffectEnum { Test1 }
+public enum SoundEffectEnum { ClickDOWN, ClickUP, Scroll, ButtonOPEN, ButtonCLOSE }
 public enum MusicTrackEnum { Test1, Test2, LoopTest }
 public enum TrackFadeType { FadeIn, FadeOut }
 

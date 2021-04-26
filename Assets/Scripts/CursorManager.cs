@@ -37,7 +37,19 @@ public class CursorManager : MonoBehaviour
 
         mouseEventLoading.AddListener(MouseLoading);
         mouseEventNormal.AddListener(MouseNormal);
+    }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        {
+            GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.ClickDOWN);
+        }
+
+        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+        {
+            GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.ClickUP);
+        }
     }
 
     public void UpdateCursor(Cursors c)

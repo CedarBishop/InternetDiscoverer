@@ -48,5 +48,15 @@ MonoBehaviour:
   MaxMusicVolume: 1
   AvaliableSoundEffects:
   - SFXEnum: 0
-    Clip: {fileID: 8300000, guid: 106997efb296dae479bf44184db28ca7, type: 3}
-  AvaliableMusicTracks: []
+    Clip: {fileID: 8300000, guid: 13bc5ae4d3cda8c4e8c4ee2ca9b5f37c, type: 3}
+  - SFXEnum: 1
+    Clip: {fileID: 8300000, guid: 844e236f3ab86604d8fa1e3e762e380a, type: 3}
+  - SFXEnum: 2
+    Clip: {fileID: 8300000, guid: 64c9179d7ea89684899d2386fbd8fc62, type: 3}
+  - SFXEnum: 3
+    Clip: {fileID: 8300000, guid: ae91b5c08bc89cb4e9827ddfea0b4c6e, type: 3}
+  - SFXEnum: 4
+    Clip: {fileID: 8300000, guid: af9e5ae08a86c5a47a0d957060bbc259, type: 3}
+  AvaliableMusicTracks:
+  - MTEnum: 0
+    Clip: {fileID: 0}
