@@ -12,8 +12,8 @@ public class SettingsMenu : MonoBehaviour
     public Text MusicVolText2;
     public Text SFXVolText;
     public Text SFXVolText2;
-    private float MusicVol = 1;
-    private float SFXVol = 1;
+    private float MusicVol = 50;
+    private float SFXVol = 50;
 
     private bool IsPostProcessingOn = true;
 
@@ -35,9 +35,9 @@ public class SettingsMenu : MonoBehaviour
     {
         SFXVol = _Adjustment;
         //SFXVol = Mathf.RoundToInt(SFXVol);
-        SFXVolText.text = (SFXVol * 50f).ToString("0");
-        SFXVolText2.text = (SFXVol * 50f).ToString("0");
-        GlobalSoundManager.Inst.MaxSFXVolume = SFXVol * _Adjustment;
+        SFXVolText.text = SFXVol.ToString("0");
+        SFXVolText2.text = SFXVol.ToString("0");
+        GlobalSoundManager.Inst.MaxSFXVolume = SFXVol/100f;
     }
 
     public void UpdateMusicSlider(float _Adjustment)
@@ -46,7 +46,7 @@ public class SettingsMenu : MonoBehaviour
         MusicVol = Mathf.RoundToInt(MusicVol);
         MusicVolText.text = MusicVol.ToString();
         MusicVolText2.text = MusicVol.ToString();
-        GlobalSoundManager.Inst.MaxMusicVolume = MusicVol/100 * _Adjustment;
+        GlobalSoundManager.Inst.MaxMusicVolume = MusicVol/100f;
     }
 
     private void InititalSetup()
