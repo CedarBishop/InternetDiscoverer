@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour
                 break;
         }
 
-        //InvokeActivationEvent(menuItem);
+        InvokeActivationEvent(menuItem);
     }
 
     public static void SubToActivationEvent(Action<MenuItem> _Function)

@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
 
     public CursorManager cursorManager = null;
 
+    private int amountOfClicks = 0;
+
+    private VideoData targetVideo;
+
     private void Awake()
     {
         if (instance == null)
@@ -44,7 +48,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (var item in allVideos)
             {
-                if (!item.videoTags.Contains(VideoTags.Deep))
+                if (!item.videoTags.Contains(VideoTags.Deep) || item.title != targetVideo.title)
                 {
                     recomendedVideos.Add(item);
                 }                
@@ -137,6 +141,28 @@ public class GameManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    public int GetClicksAndTargetVideo (out VideoData target)
+    {
+        target = targetVideo;
+        return amountOfClicks;
+    }
+
+    public void AddClicks (int amount)
+    {
+        amountOfClicks += amount;
+    }
+
+    public void ResetTargetVideo ()
+    {
+        VideoData previousVideo = targetVideo;
+        do
+        {
+            targetVideo = allVideos[Random.Range(0, allVideos.Length)];
+        } while (targetVideo.videoTags.Contains(VideoTags.Deep) && targetVideo.title != previousVideo.title);
+
+        UIManager.instance.internetDiscoverer.HomeButton();
     }
 }
 

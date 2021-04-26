@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class LOLMessenger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject popup;
+
+    public void Popup ()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Close ()
     {
-        
+
     }
 }

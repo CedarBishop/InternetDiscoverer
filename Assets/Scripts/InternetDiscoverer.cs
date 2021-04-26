@@ -170,6 +170,7 @@ public class InternetDiscoverer : MonoBehaviour
         if (_Item == MenuItem.Explorer)
         {
             // Add any custom logic other than activation when this   
+            StartCoroutine("CoLoadPage");
         }
     }
 }
