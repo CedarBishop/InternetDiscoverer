@@ -30,11 +30,17 @@ public class InternetDiscoverer : MonoBehaviour
         LoadHomePage(true);
 
         GameManager.TargetVideoReset += OnTargetVideoReset;
+        GameManager.CrashRestart += OnCrashRestart;
     }
 
     void OnTargetVideoReset ()
     {
         LoadHomePage();
+    }
+
+    void OnCrashRestart ()
+    {
+        LoadHomePage(true);
     }
 
     public void HomeButton ()
