@@ -89,19 +89,22 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (newVideo.videoTags.Contains(VideoTags.Deep))
+        if (newVideo != null)
         {
-            consecutiveDeepVideos++;
-        }
-        else
-        {
-            consecutiveDeepVideos = 0;
-        }
+            if (newVideo.videoTags.Contains(VideoTags.Deep))
+            {
+                consecutiveDeepVideos++;
+            }
+            else
+            {
+                consecutiveDeepVideos = 0;
+            }
 
-        if (ConsecutiveDeepVideosUpdated != null)
-        {
-            ConsecutiveDeepVideosUpdated(consecutiveDeepVideos);
-        }
+            if (ConsecutiveDeepVideosUpdated != null)
+            {
+                ConsecutiveDeepVideosUpdated(consecutiveDeepVideos);
+            }
+        }       
 
         recomendedVideos.Shuffle();
 
