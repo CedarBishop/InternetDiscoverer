@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public Desktop desktop;
     public InternetDiscoverer internetDiscoverer;
     public GameObject login;
+    public LOLMessenger messenger;
     public InputField username;
 
     public static Action<MenuItem> ActivationEvent;

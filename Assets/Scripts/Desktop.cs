@@ -33,6 +33,11 @@ public class Desktop : MonoBehaviour
         UIManager.instance.SetMenuItem(MenuItem.SettingsScreen);
     }
 
+    public void OpenMessenger ()
+    {
+        UIManager.instance.messenger.Open();
+    }
+
     private void OnActivation(MenuItem _Item)
     {
         if (_Item == MenuItem.Desktop)

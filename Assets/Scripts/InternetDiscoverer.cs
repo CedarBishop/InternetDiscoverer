@@ -23,22 +23,25 @@ public class InternetDiscoverer : MonoBehaviour
     private void Start()
     {
         SubToEvents();
+        LoadHomePage(true);
 
-        homePage.gameObject.SetActive(true);
-        watchPage.gameObject.SetActive(false);
-
-        GameManager.instance?.ClearHistory();
-        currentPageVideoData = null;
-
-        homePage?.LoadRecommendedVideos();
+        GameManager.TargetVideoReset += OnTargetVideoReset;
     }
 
+    void OnTargetVideoReset ()
+    {
+        LoadHomePage();
+    }
 
     public void HomeButton ()
     {
+        LoadHomePage();
+    }
+
+    void LoadHomePage (bool withoutLoadingScreen = false)
+    {
         homePage.gameObject.SetActive(true);
         watchPage.gameObject.SetActive(false);
-        StartCoroutine("CoLoadPage");
 
         GameManager.instance?.ClearHistory();
         currentPageVideoData = null;
@@ -47,7 +50,10 @@ public class InternetDiscoverer : MonoBehaviour
 
         GameManager.instance.ClearClicks();
 
-        //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
+        if (!withoutLoadingScreen)
+        {
+            StartCoroutine("CoLoadPage");
+        }
     }
 
     public void BackButton ()
@@ -65,7 +71,6 @@ public class InternetDiscoverer : MonoBehaviour
                 StartCoroutine("CoLoadPage");
             }
         }
-        //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void ForwardButton ()
@@ -75,13 +80,11 @@ public class InternetDiscoverer : MonoBehaviour
             watchPage.LoadHistoryState(state);
             StartCoroutine("CoLoadPage");
         }
-        //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void RefreshButton ()
     {
         StartCoroutine("CoLoadPage");
-        //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void WatchVideo (VideoData videoData)
@@ -92,7 +95,6 @@ public class InternetDiscoverer : MonoBehaviour
         StartCoroutine("CoLoadPage");
         watchPage.LoadVideo(videoData);
         GameManager.instance.AddClicks(1);
-        //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     IEnumerator CoLoadPage ()
@@ -131,7 +133,6 @@ public class InternetDiscoverer : MonoBehaviour
 
     public void MaxmiseButton ()
     {
-
         GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.ButtonOPEN);
     }
 
@@ -148,12 +149,7 @@ public class InternetDiscoverer : MonoBehaviour
 
     public void OpenExplorer()
     {
-        StartCoroutine("CoLoadPage");
-
-        homePage.gameObject.SetActive(true);
-        watchPage.gameObject.SetActive(false);
-        GameManager.instance?.ClearHistory();
-        homePage?.LoadRecommendedVideos();
+        LoadHomePage();
     }
 
     public void CloseExplorer()

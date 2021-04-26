@@ -151,6 +151,7 @@ MonoBehaviour:
   desktop: {fileID: 7295894227759280830}
   internetDiscoverer: {fileID: 7882967987362917200}
   login: {fileID: 7404752460987974339}
+  messenger: {fileID: 1299685757549803178}
   username: {fileID: 7404752462317031240}
   startingMenuItem: 4
 --- !u!1 &5760611849276867031
@@ -1102,6 +1103,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8294767455749167907, guid: ccc91e6a010208a42958e367e5e07a25, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294767455749167907, guid: ccc91e6a010208a42958e367e5e07a25, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294767455966310960, guid: ccc91e6a010208a42958e367e5e07a25, type: 3}
+      propertyPath: m_Value
+      value: 0.44444445
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294767456635336803, guid: ccc91e6a010208a42958e367e5e07a25, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294767456635336803, guid: ccc91e6a010208a42958e367e5e07a25, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294767456635336803, guid: ccc91e6a010208a42958e367e5e07a25, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294767456891673000, guid: ccc91e6a010208a42958e367e5e07a25, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 97.20001
+      objectReference: {fileID: 0}
     - target: {fileID: 8762139004529574028, guid: ccc91e6a010208a42958e367e5e07a25, type: 3}
       propertyPath: m_Name
       value: LOL Messenger
@@ -1113,3 +1142,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6904612180044335592, guid: ccc91e6a010208a42958e367e5e07a25, type: 3}
   m_PrefabInstance: {fileID: 8566083416256137553}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1299685757549803178 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7271552204386615291, guid: ccc91e6a010208a42958e367e5e07a25, type: 3}
+  m_PrefabInstance: {fileID: 8566083416256137553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8d805e607f60144b093936b5493046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,6 +12,7 @@ public class LOLMessenger : MonoBehaviour
     public LOLMessage messagePrefab;
     private bool hasGivenObjective;
     private bool isNotFirstRace;
+    private bool raceFinished;
 
     private void Start()
     {
@@ -52,7 +53,7 @@ public class LOLMessenger : MonoBehaviour
 
     private void GiveObjective(VideoData currentVideo)
     {
-        popup.SetActive(true);
+        Open();
         string targetVideo = GameManager.instance.GetTargetVideo().title;
         string username = GameManager.instance.GetUserName();
         string messageContent = "";
@@ -82,7 +83,7 @@ public class LOLMessenger : MonoBehaviour
 
     private void UpdatePopup(VideoData currentVideo)
     {
-        popup.SetActive(true);
+        Open();
         int clicks = GameManager.instance.GetClicks();
         string username = GameManager.instance.GetUserName();
         string targetVideo = GameManager.instance.GetTargetVideo().title;
@@ -95,7 +96,7 @@ public class LOLMessenger : MonoBehaviour
 
     private void ObjectiveComplete (VideoData currentVideo)
     {
-        popup.SetActive(true);
+        Open();
         int clicks = GameManager.instance.GetClicks();
         string targetVideo = GameManager.instance.GetTargetVideo().title;
         string username = GameManager.instance.GetUserName();
@@ -116,18 +117,30 @@ public class LOLMessenger : MonoBehaviour
 
         CreateMessage(messageContent, false);
 
-        GameManager.instance.ResetTargetVideo();
+        raceFinished = true;        
     }
 
     public void Close ()
     {
         popup.SetActive(false);
+
+        if (raceFinished)
+        {
+            raceFinished = false;
+            GameManager.instance.ResetTargetVideo();
+        }
     }
 
     private void CreateMessage (string messageContent, bool isYou)
     {
         LOLMessage message = Instantiate(messagePrefab, messageVerticalBox.transform);
         message.Setup(messageContent, isYou);
+        messageBoxScrollBar.value = 0;
+    }
+
+    public void Open ()
+    {
+        popup.SetActive(true);
         messageBoxScrollBar.value = 0;
     }
 }
