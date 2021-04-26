@@ -45,6 +45,8 @@ public class InternetDiscoverer : MonoBehaviour
 
         homePage?.LoadRecommendedVideos();
 
+        GameManager.instance.ClearClicks();
+
         //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 

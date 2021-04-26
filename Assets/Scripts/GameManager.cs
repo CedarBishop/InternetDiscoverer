@@ -98,7 +98,6 @@ public class GameManager : MonoBehaviour
 
     bool SharesTag (VideoData videoData1, VideoData videoData2)
     {
-        // TODO: optimise this function
         foreach (var video1Tag in videoData1.videoTags)
         {
             if (videoData2.videoTags.Contains(video1Tag))
@@ -173,10 +172,17 @@ public class GameManager : MonoBehaviour
             targetVideo = allVideos[UnityEngine.Random.Range(0, allVideos.Length)];
         } while (targetVideo.videoTags.Contains(VideoTags.Deep) && targetVideo.title != previousVideo.title);
 
+        ClearClicks();
+
         if (TargetVideoReset != null)
         {
             TargetVideoReset();
         }
+    }
+
+    public void ClearClicks ()
+    {
+        amountOfClicks = 0;
     }
 
     public string GetUserName ()
