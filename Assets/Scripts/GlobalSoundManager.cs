@@ -52,7 +52,7 @@ public class GlobalSoundManager : MonoBehaviour
             return;
 
         AudioClip Clip = GetSFXClip(_Effect);
-        AS.PlayOneShot(Clip);
+        AS.PlayOneShot(Clip, MaxSFXVolume);
     }
 
     public void ChangeMusicTrack(MusicTrackEnum _Track)

@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2780151079053195458, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2780151079194545563, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -185,10 +181,6 @@ PrefabInstance:
     - target: {fileID: 2780151079823505065, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
       propertyPath: m_Name
       value: Post-Processing Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8707590457947697728, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8213fdbbd0c0c24e99b4cb923f84126, type: 3}
