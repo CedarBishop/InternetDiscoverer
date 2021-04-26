@@ -19,7 +19,7 @@ public class CursorManager : MonoBehaviour
 
     public UnityEvent mouseEventLoading;
     public UnityEvent mouseEventNormal;
-    private SpriteRenderer[] mouseShadowSprites;
+    public SpriteRenderer[] mouseShadowSprites;
 
     // Start is called before the first frame update
     void Start()

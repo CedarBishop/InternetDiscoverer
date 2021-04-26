@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CheckBoxGroupButton : MonoBehaviour
 {
     public CursorType Type;
+    private CursorManager cursorManager;
 
     public Button Butt;
     public Image Img;
@@ -14,6 +15,14 @@ public class CheckBoxGroupButton : MonoBehaviour
     private bool Checked = false;
     public bool IsDefault = false;
 
+
+    private void Awake()
+    {
+        if (cursorManager == null)
+        {
+            cursorManager = FindObjectOfType<CursorManager>();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +45,7 @@ public class CheckBoxGroupButton : MonoBehaviour
     {
         if (Checked)
         {
-
+            Debug.Log("Set Cursor");
         }
         else
         {
