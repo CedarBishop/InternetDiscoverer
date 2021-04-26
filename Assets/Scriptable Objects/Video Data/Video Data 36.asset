@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f207e7aa7064b9419b4d2e09bfd8843, type: 3}
+  m_Name: Video Data 36
+  m_EditorClassIdentifier: 
+  smallThumbnail: {fileID: 21300000, guid: 803618717fab1a646922a3f91a9e948c, type: 3}
+  largeThumbnail: {fileID: 21300000, guid: d197aff560b013140bfebc41068e5054, type: 3}
+  title: Kung-Fu Swimming (2008) - Movie Clip HD
+  views: 2147483647
+  lengthTimeInSeconds: 276
+  dateAdded: 25.07.2007
+  youtuber: Binging with Baby
+  ratings: 5
+  videoTags: 0600000007000000
