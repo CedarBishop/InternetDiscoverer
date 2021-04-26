@@ -8,8 +8,8 @@ public class InternetDiscoverer : MonoBehaviour
     public MeTubeHomePage homePage;
     public MeTubeWatchPage watchPage;
 
-    public GameObject ButtonParent;
-    public GameObject BrowserOutline;
+   // public GameObject ButtonParent;
+   // public GameObject BrowserOutline;
 
     public Image loadImage;
     public Image CloseImage;
@@ -18,25 +18,11 @@ public class InternetDiscoverer : MonoBehaviour
     public float maxIncrementWaitTime;
     public float maxIncrementAmount;
 
-    private GameManager gameManager;
-
-    private void Awake()
-    {
-        if (gameManager == null)
-        {
-            gameManager = FindObjectOfType<GameManager>();
-        }
-    }
-
     private void Start()
     {
         SubToEvents();
     }
 
-    public void Update()
-    {
-
-    }
 
     public void HomeButton ()
     {
@@ -96,7 +82,7 @@ public class InternetDiscoverer : MonoBehaviour
     IEnumerator CoLoadPage ()
     {
         // Set Cursor to loading
-        gameManager.cursorManager.mouseEventLoading.Invoke();
+        GameManager.instance.cursorManager.mouseEventLoading.Invoke();
 
         loadImage.fillAmount = 1.0f;
         float initialWaitTime = Random.Range(0, maxInitialWaitTime);
@@ -113,12 +99,12 @@ public class InternetDiscoverer : MonoBehaviour
         loadImage.fillAmount = 0.0f;
         
         // Set Cursor to normal
-        gameManager.cursorManager.mouseEventNormal.Invoke();
+        GameManager.instance.cursorManager.mouseEventNormal.Invoke();
     }
 
     public void MinimiseButton ()
     {
-
+        UIManager.instance.SetMenuItem(MenuItem.Desktop);
         GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
@@ -130,35 +116,33 @@ public class InternetDiscoverer : MonoBehaviour
 
     public void CloseButton ()
     {
-        CloseExplorer();
+        homePage.gameObject.SetActive(true);
+        watchPage.gameObject.SetActive(false);
+        GameManager.instance?.ClearHistory();
+        homePage?.LoadRecommendedVideos();
+
+        UIManager.instance.SetMenuItem(MenuItem.Desktop);
         GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
     }
 
     public void OpenExplorer()
     {
-        gameObject.SetActive(true);
-        homePage.gameObject.SetActive(true);
-        ButtonParent.gameObject.SetActive(true);
-        BrowserOutline.gameObject.SetActive(true);
-        watchPage.gameObject.SetActive(false);
         StartCoroutine("CoLoadPage");
 
+        homePage.gameObject.SetActive(true);
+        watchPage.gameObject.SetActive(false);
         GameManager.instance?.ClearHistory();
         homePage?.LoadRecommendedVideos();
     }
 
     public void CloseExplorer()
     {
-        homePage.gameObject.SetActive(false);
-        watchPage.gameObject.SetActive(false);
-        ButtonParent.gameObject.SetActive(false);
-        BrowserOutline.gameObject.SetActive(false);
         StartCoroutine("CoClosePage");
     }
 
     IEnumerator CoClosePage()
     {
-        gameManager.cursorManager.mouseEventLoading.Invoke();
+        GameManager.instance.cursorManager.mouseEventLoading.Invoke();
 
         CloseImage.fillAmount = 1.0f;
         float initialWaitTime = Random.Range(0, 0.1f);
@@ -173,17 +157,19 @@ public class InternetDiscoverer : MonoBehaviour
         }
 
         CloseImage.fillAmount = 0.0f;
-        gameManager.cursorManager.mouseEventNormal.Invoke();
+        GameManager.instance.cursorManager.mouseEventNormal.Invoke();
     }
 
     private void SubToEvents()
     {
-        UIManager.SubToActivationEvent(ReactToActivationEvent);
+        UIManager.SubToActivationEvent(OnActivation);
     }
 
-    private void ReactToActivationEvent(MenuItem _MenuItem)
+    private void OnActivation(MenuItem _Item)
     {
-        if (_MenuItem == MenuItem.Explorer)
-            OpenExplorer();
+        if (_Item == MenuItem.Explorer)
+        {
+            // Add any custom logic other than activation when this   
+        }
     }
 }

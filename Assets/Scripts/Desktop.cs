@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class Desktop : MonoBehaviour
 
     void Start()
     {
+        SubToEvents();
     }
 
     void Update()
@@ -21,18 +23,25 @@ public class Desktop : MonoBehaviour
     }
 
 
+    public void OpenExplorerButton ()
+    {
+        UIManager.instance.SetMenuItem(MenuItem.Explorer);
+    }
 
+    public void OpenSettingsButton()
+    {
+        UIManager.instance.SetMenuItem(MenuItem.SettingsScreen);
+    }
 
-    private void AcvivateEntity(MenuItem _Item)
+    private void OnActivation(MenuItem _Item)
     {
         if (_Item == MenuItem.Desktop)
-            gameObject.SetActive(true);
-        else if(_Item == MenuItem.Explorer)
-            gameObject.SetActive(false);       
-
+        {
+            // Add any custom logic other than activation when this   
+        }
     }
     public void SubToEvents()
     {
-        UIManager.SubToActivationEvent(AcvivateEntity);
+        UIManager.SubToActivationEvent(OnActivation);
     }
 }

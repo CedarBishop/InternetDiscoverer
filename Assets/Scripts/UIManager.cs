@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEditor;
 
 public enum MenuItem { Desktop, StartMenu, SettingsScreen, Explorer }
 public class UIManager : MonoBehaviour
@@ -13,6 +14,9 @@ public class UIManager : MonoBehaviour
 
     public static Action<MenuItem> ActivationEvent;
     public static Action<CursorType> CursorToggleEvent;
+
+    public MenuItem startingMenuItem;
+    private MenuItem currentMenuItem;
 
     private void Awake()
     {
@@ -26,6 +30,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SetMenuItem(startingMenuItem);
+    }
+
     public Desktop GetDesktop()
     {
         return desktop;
@@ -34,6 +43,32 @@ public class UIManager : MonoBehaviour
     public InternetDiscoverer GetInternetDiscoverer ()
     {
         return internetDiscoverer;
+    }
+
+    public void SetMenuItem (MenuItem menuItem)
+    {
+        desktop.gameObject.SetActive(false);
+        internetDiscoverer.gameObject.SetActive(false);
+
+        currentMenuItem = menuItem;
+
+        switch (menuItem)
+        {
+            case MenuItem.Desktop:
+                desktop.gameObject.SetActive(true);
+                break;
+            case MenuItem.StartMenu:
+                break;
+            case MenuItem.SettingsScreen:
+                break;
+            case MenuItem.Explorer:
+                internetDiscoverer.gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
+
+        //InvokeActivationEvent(menuItem);
     }
 
     public static void SubToActivationEvent(Action<MenuItem> _Function)
