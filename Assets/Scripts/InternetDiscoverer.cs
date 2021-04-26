@@ -8,7 +8,11 @@ public class InternetDiscoverer : MonoBehaviour
     public MeTubeHomePage homePage;
     public MeTubeWatchPage watchPage;
 
+    public GameObject ButtonParent;
+    public GameObject BrowserOutline;
+
     public Image loadImage;
+    public Image CloseImage;
 
     public float maxInitialWaitTime;
     public float maxIncrementWaitTime;
@@ -26,13 +30,12 @@ public class InternetDiscoverer : MonoBehaviour
 
     private void Start()
     {
-        homePage.gameObject.SetActive(true);
-        watchPage.gameObject.SetActive(false);
-        StartCoroutine("CoLoadPage");
+        SubToEvents();
+    }
 
-        GameManager.instance?.ClearHistory();
+    public void Update()
+    {
 
-        homePage?.LoadRecommendedVideos();
     }
 
     public void HomeButton ()
@@ -127,7 +130,60 @@ public class InternetDiscoverer : MonoBehaviour
 
     public void CloseButton ()
     {
-
+        CloseExplorer();
         GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
+    }
+
+    public void OpenExplorer()
+    {
+        gameObject.SetActive(true);
+        homePage.gameObject.SetActive(true);
+        ButtonParent.gameObject.SetActive(true);
+        BrowserOutline.gameObject.SetActive(true);
+        watchPage.gameObject.SetActive(false);
+        StartCoroutine("CoLoadPage");
+
+        GameManager.instance?.ClearHistory();
+        homePage?.LoadRecommendedVideos();
+    }
+
+    public void CloseExplorer()
+    {
+        homePage.gameObject.SetActive(false);
+        watchPage.gameObject.SetActive(false);
+        ButtonParent.gameObject.SetActive(false);
+        BrowserOutline.gameObject.SetActive(false);
+        StartCoroutine("CoClosePage");
+    }
+
+    IEnumerator CoClosePage()
+    {
+        gameManager.cursorManager.mouseEventLoading.Invoke();
+
+        CloseImage.fillAmount = 1.0f;
+        float initialWaitTime = Random.Range(0, 0.1f);
+        yield return new WaitForSeconds(initialWaitTime);
+
+        while (CloseImage.fillAmount > 0)
+        {
+            float incrementAmount = Random.Range(0, maxIncrementAmount);
+            CloseImage.fillAmount -= maxIncrementAmount;
+            float waitTime = Random.Range(0, 0.1f);
+            yield return new WaitForSeconds(waitTime);
+        }
+
+        CloseImage.fillAmount = 0.0f;
+        gameManager.cursorManager.mouseEventNormal.Invoke();
+    }
+
+    private void SubToEvents()
+    {
+        UIManager.SubToActivationEvent(ReactToActivationEvent);
+    }
+
+    private void ReactToActivationEvent(MenuItem _MenuItem)
+    {
+        if (_MenuItem == MenuItem.Explorer)
+            OpenExplorer();
     }
 }
