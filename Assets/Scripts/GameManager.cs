@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
 
     public CursorManager cursorManager = null;
 
+    public int amountOfDeepVideosToCrash;
+    public float crashTimeDelay;
+
     private int amountOfClicks = 0;
 
     private VideoData targetVideo;
@@ -89,22 +92,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (newVideo != null)
-        {
-            if (newVideo.videoTags.Contains(VideoTags.Deep))
-            {
-                consecutiveDeepVideos++;
-            }
-            else
-            {
-                consecutiveDeepVideos = 0;
-            }
-
-            if (ConsecutiveDeepVideosUpdated != null)
-            {
-                ConsecutiveDeepVideosUpdated(consecutiveDeepVideos);
-            }
-        }       
+        CheckForDeepVideos(newVideo);
 
         recomendedVideos.Shuffle();
 
@@ -213,6 +201,42 @@ public class GameManager : MonoBehaviour
     public void SetUserName (string value)
     {
         username = value;
+    }
+
+    void CheckForDeepVideos (VideoData newVideo)
+    {
+        if (newVideo != null)
+        {
+            if (newVideo.videoTags.Contains(VideoTags.Deep))
+            {
+                consecutiveDeepVideos++;
+                if (consecutiveDeepVideos >= amountOfDeepVideosToCrash)
+                {
+                    StartCoroutine("CoCrash");
+                }
+            }
+            else
+            {
+                consecutiveDeepVideos = 0;
+            }
+
+            
+        }
+        else
+        {
+            consecutiveDeepVideos = 0;
+        }
+
+        if (ConsecutiveDeepVideosUpdated != null)
+        {
+            ConsecutiveDeepVideosUpdated(consecutiveDeepVideos);
+        }
+    }
+
+    IEnumerator CoCrash ()
+    {
+        yield return new WaitForSeconds(crashTimeDelay);
+        UIManager.instance.SetMenuItem(MenuItem.Login);
     }
 }
 

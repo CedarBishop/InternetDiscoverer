@@ -46,7 +46,7 @@ public class LOLMessenger : MonoBehaviour
             }
             else
             {
-                if (Random.Range(0, 3) < 1)
+                if (Random.Range(0, 3) < 1 && currentVideo != null)
                 {
                     UpdatePopup(currentVideo);
                 }                

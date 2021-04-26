@@ -84,3 +84,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ad58ae4368eb4f6429c0ec824e3cfb31, type: 2}
   - {fileID: 11400000, guid: 06136e9411fff1e4db47c1fddebf4b58, type: 2}
   cursorManager: {fileID: 0}
+  amountOfDeepVideosToCrash: 5
+  crashTimeDelay: 5
