@@ -19,7 +19,7 @@ public class LOLMessenger : MonoBehaviour
     private bool raceFinished;
 
     private bool canRespond;
-    private float bottomOfScrollbarValue;
+    private int rivalScore;
 
     private void Start()
     {
@@ -60,6 +60,13 @@ public class LOLMessenger : MonoBehaviour
 
     private void GiveObjective(VideoData currentVideo)
     {
+        foreach (var message in messageVerticalBox.GetComponentsInChildren<LOLMessage>())
+        {
+            Destroy(message.gameObject);
+        }
+
+        rivalScore = Random.Range(1,8);
+
         Open();
         string targetVideo = GameManager.instance.GetTargetVideo().title;
         string username = GameManager.instance.GetUserName();
@@ -82,7 +89,7 @@ public class LOLMessenger : MonoBehaviour
             CreateMessage(messageContent, false);
         }
 
-        SetResponses("Ok", "Bite me!");
+        SetResponses("Got it.", "You're on!");
 
         hasGivenObjective = true;
         isNotFirstRace = true;
@@ -96,12 +103,25 @@ public class LOLMessenger : MonoBehaviour
         string username = GameManager.instance.GetUserName();
         string targetVideo = GameManager.instance.GetTargetVideo().title;
 
-        string messageContent = username + " you are already on " + clicks + " clicks.";
-        CreateMessage(messageContent, false);
-        messageContent = username + "You better find it soon.";
-        CreateMessage(messageContent, false);
+        if (clicks < rivalScore + 1)
+        {
+            string messageContent = username + " you are doing well";
+            CreateMessage(messageContent, false);
+            messageContent = "You are on " + clicks + " clicks.";
+            CreateMessage(messageContent, false);
 
-        SetResponses("Ok", "Bite me!");
+            SetResponses("Ok", "Yeah I know.");
+        }
+        else
+        {
+            string messageContent = username + " you are already on " + clicks + " clicks.";
+            CreateMessage(messageContent, false);
+            messageContent = "You better find it soon.";
+            CreateMessage(messageContent, false);
+
+            SetResponses("Ok", "Bite me!");
+        }
+        
     }
 
     private void ObjectiveComplete (VideoData currentVideo)
@@ -112,21 +132,28 @@ public class LOLMessenger : MonoBehaviour
         string username = GameManager.instance.GetUserName();
         string messageContent = "";
 
-        if (clicks < 4)
+        if (clicks < rivalScore)
         {
-            messageContent += "Damn you found that video in only "+ clicks  +" clicks!\nYou even beat me."; 
+            messageContent = "Damn you found that video in only " + clicks + " clicks!";
+            CreateMessage(messageContent, false);
+            messageContent = "You beat my score of " + clicks + " clicks!";
+            CreateMessage(messageContent, false);
+            SetResponses("Good game.", "Eat my dust.");
         }
-        else if (clicks < 7)
+        else if (clicks == rivalScore)
         {
-            messageContent += "Okay job, not as fast as me but you managed to find " + targetVideo + " in " + clicks + " clicks." ;
+            messageContent = "We both tied for " + clicks + " clicks.";
+            CreateMessage(messageContent, false);
+            SetResponses("Good game.", "Ok.");
         }
         else
         {
-            messageContent += "Wow you are so slow, it took you " + clicks + "clicks to find " + targetVideo + ".";
-        }
-
-        CreateMessage(messageContent, false);
-        SetResponses("Ok", "Bite me!");
+            messageContent = "Wow you are so slow, it took you " + clicks + " clicks to find " + targetVideo + ".";
+            CreateMessage(messageContent, false);
+            messageContent = "I found " + targetVideo + " in only " + rivalScore + " clicks.";
+            CreateMessage(messageContent, false);
+            SetResponses("Well done", "Screw you.");
+        }        
 
         raceFinished = true;        
     }
@@ -153,7 +180,7 @@ public class LOLMessenger : MonoBehaviour
     {
         LOLMessage message = Instantiate(messagePrefab, messageVerticalBox.transform);
         message.Setup(messageContent, isYou);
-        messageBoxScrollBar.value = -0.1f;
+        messageBoxScrollBar.value = 0f;
     }
 
     private void SetResponses (string response1, string response2)
