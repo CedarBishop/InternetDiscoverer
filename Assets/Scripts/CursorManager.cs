@@ -37,6 +37,7 @@ public class CursorManager : MonoBehaviour
 
         mouseEventLoading.AddListener(MouseLoading);
         mouseEventNormal.AddListener(MouseNormal);
+        SubToCursorEvent();
     }
 
     private void Update()
