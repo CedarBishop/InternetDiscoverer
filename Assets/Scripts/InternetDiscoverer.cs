@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,10 @@ using UnityEngine.UI;
 
 public class InternetDiscoverer : MonoBehaviour
 {
+    public static event Action<VideoData> NewPageLoaded;
+
     public MeTubeHomePage homePage;
     public MeTubeWatchPage watchPage;
-
-   // public GameObject ButtonParent;
-   // public GameObject BrowserOutline;
 
     public Image loadImage;
     public Image CloseImage;
@@ -17,6 +17,8 @@ public class InternetDiscoverer : MonoBehaviour
     public float maxInitialWaitTime;
     public float maxIncrementWaitTime;
     public float maxIncrementAmount;
+
+    private VideoData currentPageVideoData;
 
     private void Start()
     {
@@ -31,6 +33,7 @@ public class InternetDiscoverer : MonoBehaviour
         StartCoroutine("CoLoadPage");
 
         GameManager.instance?.ClearHistory();
+        currentPageVideoData = null;
 
         homePage?.LoadRecommendedVideos();
 
@@ -74,6 +77,7 @@ public class InternetDiscoverer : MonoBehaviour
     {
         homePage.gameObject.SetActive(false);
         watchPage.gameObject.SetActive(true);
+        currentPageVideoData = videoData;
         StartCoroutine("CoLoadPage");
         watchPage.LoadVideo(videoData);
         //GlobalSoundManager.Inst?.PlayOneShot(SoundEffectEnum.Test1);
@@ -85,14 +89,14 @@ public class InternetDiscoverer : MonoBehaviour
         GameManager.instance.cursorManager.mouseEventLoading.Invoke();
 
         loadImage.fillAmount = 1.0f;
-        float initialWaitTime = Random.Range(0, maxInitialWaitTime);
+        float initialWaitTime = UnityEngine.Random.Range(0, maxInitialWaitTime);
         yield return new WaitForSeconds(initialWaitTime);
 
         while (loadImage.fillAmount > 0)
         {
-            float incrementAmount = Random.Range(0, maxIncrementAmount);
+            float incrementAmount = UnityEngine.Random.Range(0, maxIncrementAmount);
             loadImage.fillAmount -= maxIncrementAmount;
-            float waitTime = Random.Range(0, maxInitialWaitTime);
+            float waitTime = UnityEngine.Random.Range(0, maxInitialWaitTime);
             yield return new WaitForSeconds(waitTime);
         }
 
@@ -100,6 +104,11 @@ public class InternetDiscoverer : MonoBehaviour
         
         // Set Cursor to normal
         GameManager.instance.cursorManager.mouseEventNormal.Invoke();
+
+        if (NewPageLoaded != null)
+        {
+            NewPageLoaded(currentPageVideoData);
+        }
     }
 
     public void MinimiseButton ()
@@ -145,14 +154,14 @@ public class InternetDiscoverer : MonoBehaviour
         GameManager.instance.cursorManager.mouseEventLoading.Invoke();
 
         CloseImage.fillAmount = 1.0f;
-        float initialWaitTime = Random.Range(0, 0.1f);
+        float initialWaitTime = UnityEngine.Random.Range(0, 0.1f);
         yield return new WaitForSeconds(initialWaitTime);
 
         while (CloseImage.fillAmount > 0)
         {
-            float incrementAmount = Random.Range(0, maxIncrementAmount);
+            float incrementAmount = UnityEngine.Random.Range(0, maxIncrementAmount);
             CloseImage.fillAmount -= maxIncrementAmount;
-            float waitTime = Random.Range(0, 0.1f);
+            float waitTime = UnityEngine.Random.Range(0, 0.1f);
             yield return new WaitForSeconds(waitTime);
         }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+
+    public static event Action TargetVideoReset;
 
     public Vector2Int randomVideoChance = new Vector2Int(1,4);
 
@@ -36,6 +39,8 @@ public class GameManager : MonoBehaviour
         {
             cursorManager = FindObjectOfType<CursorManager>();
         }
+
+        ResetTargetVideo();
     }
 
     public List<VideoData> GenerateRecomendedVideos (VideoData newVideo, bool isHomePage)
@@ -70,7 +75,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    int rand = Random.Range(0, randomVideoChance.y);
+                    int rand = UnityEngine.Random.Range(0, randomVideoChance.y);
                     if (rand < randomVideoChance.x)
                     {
                         recomendedVideos.Add(video);
@@ -143,10 +148,14 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public int GetClicksAndTargetVideo (out VideoData target)
+    public int GetClicks ()
     {
-        target = targetVideo;
         return amountOfClicks;
+    }
+
+    public VideoData GetTargetVideo ()
+    {
+        return targetVideo;
     }
 
     public void AddClicks (int amount)
@@ -159,10 +168,13 @@ public class GameManager : MonoBehaviour
         VideoData previousVideo = targetVideo;
         do
         {
-            targetVideo = allVideos[Random.Range(0, allVideos.Length)];
+            targetVideo = allVideos[UnityEngine.Random.Range(0, allVideos.Length)];
         } while (targetVideo.videoTags.Contains(VideoTags.Deep) && targetVideo.title != previousVideo.title);
 
-        UIManager.instance.internetDiscoverer.HomeButton();
+        if (TargetVideoReset != null)
+        {
+            TargetVideoReset();
+        }
     }
 }
 
