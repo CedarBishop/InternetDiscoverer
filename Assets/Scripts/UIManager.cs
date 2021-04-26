@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System;
 using UnityEditor;
 
-public enum MenuItem { Desktop, StartMenu, SettingsScreen, Explorer, Login }
+public enum MenuItem { Desktop, StartMenu, SettingsScreen, Explorer, Login, LolMessanger }
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance = null;
@@ -71,6 +71,9 @@ public class UIManager : MonoBehaviour
                 break; 
             case MenuItem.Login:
                 login.SetActive(true);
+                break;
+            case MenuItem.LolMessanger:
+                messenger.gameObject.SetActive(true);
                 break;
             default:
                 break;

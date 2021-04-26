@@ -55,13 +55,18 @@ public class PostProcessingManager : MonoBehaviour
 
     public void TogglePostPrcessing(bool _Toggle)
     {
-        LensDistortion LD;
-        PPVNormal.TryGetComponent<LensDistortion>(out LD);
         if (_Toggle)
-            LD.intensity.value = IntensityVolume;
+        {
+            PPVNormal.enabled = true;
+            PPVDEEP.enabled = true;
+            PPVDEEPER.enabled = true;
+        }
         else
-            LD.intensity.value = 0;
-
+        {
+            PPVNormal.enabled = false;
+            PPVDEEP.enabled = false;
+            PPVDEEPER.enabled = false;
+        }
         IsPostProcessing = _Toggle;
     }
 

@@ -353,7 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 5506433379325853828}
   ItemToOpen: 2
-  Type: 1
+  Type: 0
 --- !u!114 &730559180102775342
 MonoBehaviour:
   m_ObjectHideFlags: 0

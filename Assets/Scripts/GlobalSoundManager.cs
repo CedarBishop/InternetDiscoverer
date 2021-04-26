@@ -55,7 +55,7 @@ public class GlobalSoundManager : MonoBehaviour
         AS.PlayOneShot(Clip, MaxSFXVolume);
     }
 
-    public void ChangeMusicTrack(MusicTrackEnum _Track)
+    public void ChangeMusicTrack(MusicTrackEnum _Track, bool _LoopTrack)
     {
         if (IsTrackEnding)
             return;
@@ -66,7 +66,7 @@ public class GlobalSoundManager : MonoBehaviour
         MusicSourceNext.clip = MC;
         MusicSourceNext.Play();
         IsTrackEnding = true;
-        IsTrackOnLoop = false;
+        IsTrackOnLoop = _LoopTrack;
     }
 
     #region SFX Functionality
