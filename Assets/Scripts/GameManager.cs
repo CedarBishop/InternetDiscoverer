@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
 
     public static event Action TargetVideoReset;
+    public static event Action<int> ConsecutiveDeepVideosUpdated;
 
     public Vector2Int randomVideoChance = new Vector2Int(1,4);
 
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour
     private VideoData targetVideo;
 
     private string username;
+
+    private int consecutiveDeepVideos;
 
     private void Awake()
     {
@@ -84,6 +87,20 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
+        }
+
+        if (newVideo.videoTags.Contains(VideoTags.Deep))
+        {
+            consecutiveDeepVideos++;
+        }
+        else
+        {
+            consecutiveDeepVideos = 0;
+        }
+
+        if (ConsecutiveDeepVideosUpdated != null)
+        {
+            ConsecutiveDeepVideosUpdated(consecutiveDeepVideos);
         }
 
         recomendedVideos.Shuffle();
