@@ -48,9 +48,9 @@ MonoBehaviour:
   MaxMusicVolume: 1
   AvaliableSoundEffects:
   - SFXEnum: 0
-    Clip: {fileID: 8300000, guid: 13bc5ae4d3cda8c4e8c4ee2ca9b5f37c, type: 3}
+    Clip: {fileID: 8300000, guid: 11dff675f4fb6a445804f3654184c5e6, type: 3}
   - SFXEnum: 1
-    Clip: {fileID: 8300000, guid: 844e236f3ab86604d8fa1e3e762e380a, type: 3}
+    Clip: {fileID: 8300000, guid: cb520d2c938fcdf49a5451bca20327df, type: 3}
   - SFXEnum: 2
     Clip: {fileID: 8300000, guid: 64c9179d7ea89684899d2386fbd8fc62, type: 3}
   - SFXEnum: 3

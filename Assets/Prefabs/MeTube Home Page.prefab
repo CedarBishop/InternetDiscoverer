@@ -1684,7 +1684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4009066074916899525, guid: 00d7dd7a3d6f18d4987deb46ce96fc9e, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
-      value: 0.36
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4009066074916899527, guid: 00d7dd7a3d6f18d4987deb46ce96fc9e, type: 3}
       propertyPath: m_Pivot.y
