@@ -313,9 +313,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorNormal: {fileID: 11400000, guid: 772e7af84187c1b47b87f1545393ce42, type: 2}
-  cursorBlue: {fileID: 0}
-  cursorOrange: {fileID: 0}
-  currentCursor: {fileID: 0}
+  cursorBlue: {fileID: 11400000, guid: 863a9f5a1d04e8e4890c5ca9be3cc436, type: 2}
+  cursorOrange: {fileID: 11400000, guid: 7b2cb11754cb6d842b5dd57703584658, type: 2}
+  currentCursor: {fileID: 11400000, guid: 772e7af84187c1b47b87f1545393ce42, type: 2}
   defaultCursor: {fileID: 11400000, guid: 772e7af84187c1b47b87f1545393ce42, type: 2}
   cursorMode: 1
   hotSpot: {x: 0, y: 0}
@@ -326,3 +326,4 @@ MonoBehaviour:
   mouseEventNormal:
     m_PersistentCalls:
       m_Calls: []
+  mouseShadowSprites: []

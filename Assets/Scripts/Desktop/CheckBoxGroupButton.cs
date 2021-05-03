@@ -52,6 +52,7 @@ public class CheckBoxGroupButton : MonoBehaviour
             Img.sprite = Positive;
             Checked = true;
             UIManager.InvokeCursorEvent(Type);
+            Debug.Log("CheckButtonPress");
         }
     }
 

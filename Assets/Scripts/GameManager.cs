@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public VideoData[] allVideos;
 
+    private List<VideoData> allNonDeepVideos = new List<VideoData>();
+
     private Stack<BrowserHistoryState> previousBrowserHistory = new Stack<BrowserHistoryState>();
     private Stack<BrowserHistoryState> forwardBrowserHistory = new Stack<BrowserHistoryState>();
 
@@ -50,6 +52,14 @@ public class GameManager : MonoBehaviour
             cursorManager = FindObjectOfType<CursorManager>();
         }
 
+        foreach (VideoData video in allVideos)
+        {
+            if (!VideoContainsTag(video, VideoTags.Deep))
+            {
+                allNonDeepVideos.Add(video);
+            }
+        }
+        targetVideo = allVideos[0];
         ResetTargetVideo();
     }
 
@@ -66,9 +76,9 @@ public class GameManager : MonoBehaviour
 
         if (isHomePage)
         {
-            foreach (var item in allVideos)
+            foreach (var item in allNonDeepVideos)
             {
-                if (!item.videoTags.Contains(VideoTags.Deep) || item.title != targetVideo.title)
+                if (item.title != targetVideo.title)
                 {
                     recomendedVideos.Add(item);
                 }                
@@ -115,12 +125,24 @@ public class GameManager : MonoBehaviour
     {
         foreach (var video1Tag in videoData1.videoTags)
         {
-            if (videoData2.videoTags.Contains(video1Tag))
+            if (VideoContainsTag(videoData2, video1Tag))
             {
                 return true;
             }
         }
 
+        return false;
+    }
+
+    bool VideoContainsTag (VideoData videoData, VideoTags videoTag)
+    {
+        foreach (var tag in videoData.videoTags)
+        {
+            if (tag == videoTag)
+            {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -184,8 +206,8 @@ public class GameManager : MonoBehaviour
         VideoData previousVideo = targetVideo;
         do
         {
-            targetVideo = allVideos[UnityEngine.Random.Range(0, allVideos.Length)];
-        } while (targetVideo.videoTags.Contains(VideoTags.Deep) && targetVideo.title != previousVideo.title);
+            targetVideo = allNonDeepVideos[UnityEngine.Random.Range(0, allNonDeepVideos.Count)];
+        } while (targetVideo.title != previousVideo.title);
 
         ClearClicks();
 
@@ -214,7 +236,7 @@ public class GameManager : MonoBehaviour
     {
         if (newVideo != null)
         {
-            if (newVideo.videoTags.Contains(VideoTags.Deep))
+            if (VideoContainsTag(newVideo, VideoTags.Deep))
             {
                 consecutiveDeepVideos++;
                 if (consecutiveDeepVideos >= amountOfDeepVideosToCrash)
@@ -225,9 +247,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 consecutiveDeepVideos = 0;
-            }
-
-            
+            }            
         }
         else
         {
@@ -248,7 +268,7 @@ public class GameManager : MonoBehaviour
         UIManager.instance.BlueScreen.SetActive(true);
         GlobalSoundManager.Inst.SkipMusicToTime(18f);
         PostProcessingManager.Inst.OnCrashRestart();
-        yield return new WaitForSeconds(crashTimeDelay);
+        yield return new WaitForSeconds(5);
         UIManager.instance.BlueScreen.SetActive(false);
 
         UIManager.instance.SetMenuItem(MenuItem.Login);
